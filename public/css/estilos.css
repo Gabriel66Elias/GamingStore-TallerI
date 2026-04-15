@@ -1,0 +1,181 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0b1218;
+    color: hsl(0, 0%, 100%);
+    margin: 0;
+    padding: 0;
+}
+
+/* Ajustes del Contenedor Principal */
+.container {
+    margin-top: 8px; /* Espaciado superior para que no pegue al navbar */
+}
+
+/* Personalización de Tarjetas (Cards) */
+.card {
+    border: 1px solid #000000; /* Borde sutil para definir la forma */
+    border-radius: 12px; /* Esquinas redondeadas modernas */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5); /* Sombra profunda para dar relieve */
+    transition: all 0.3s ease; /* Efecto suave para cuando pasemos el mouse */
+    background-color: #1a232e !important; /* Azul muy oscuro */
+    border: 1px solid #2d3748 !important;
+    color: #496fd8 !important; /* Todo el texto dentro será blanco */
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* La tarjeta sube un poquito al pasar el mouse */
+}
+
+.card-body {
+    padding: 10rem; /* Espaciado interno cómodo */
+}
+
+/* Títulos y Acentos */
+h1, h2, h3 {
+    color: #000000; /* Mantenemos tu rojo característico para los títulos [cite: 950] */
+    font-weight: bold;
+    text-transform: uppercase; /* Estilo agresivo de gaming */
+    letter-spacing: 1px;
+}
+
+/* Personalización de la Navbar */
+.navbar {
+    background-color: #000000 !important; /* Negro puro para la barra superior [cite: 955] */
+    border-bottom: 2px solid #000000; /* Línea roja delgada para unir con tu marca */
+}
+
+.nav-link {
+    color: #cbd5e0 !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #331dac !important; /* El enlace brilla en rojo al pasar el mouse [cite: 964-967] */
+}
+
+/* Botones Personalizados */
+.btn-primary {
+    background-color: #3b1691; /* Cambiamos el azul de Bootstrap por tu rojo */
+    border: none;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #095ac4; /* Un rojo más oscuro al presionar */
+    box-shadow: 0 0 15px #095ac4; /* Efecto de brillo "neon" */
+}
+
+/* Ajuste de la imagen para que no quede "pegada" y tenga buen tamaño */
+.img-catalogo {
+    width: 100%;
+    height: 220px;
+    object-fit: contain; /* Cambiamos a 'contain' si tus fotos tienen fondo blanco, así no se cortan */
+    background-color: #000000; /* Le dejamos el fondo blanco solo a la zona de la imagen */
+    padding: 15px; /* Le damos aire al producto */
+}
+
+/* Títulos de los productos */
+.card-title {
+    color: #ffffff; /* Tu rojo de marca */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* 2. El contenedor de la imagen: esto es lo que arregla el "desorden" */
+.contenedor-img {
+    height: 250px; /* Altura fija para que todas las fotos empiecen y terminen igual */
+    background-color: rgb(255, 255, 255); /* Fondo blanco para que tus fotos WebP/JPG se integren bien */
+    display: contents;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.contenedor-img img {
+    max-height: 100%; /* La imagen no se estira, se adapta al contenedor */
+    max-width: 100%;
+    object-fit: contain; /* Mantiene la proporción original del producto */
+}
+
+/* 3. El texto y el botón siempre alineados */
+.card-body {
+    display: flex;
+    flex-direction: column; /* Permite usar mt-auto para el botón */
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* Tipografía y Textos */
+.texto-gris {
+    color: #a0aec0; /* Gris elegante para descripciones */
+}
+.titulo-centrado {
+    text-align: center;
+}
+.titulo-producto {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+.descripcion-producto {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cbd5e0;
+}
+
+/* Espaciados y Utilidades */
+.espacio-superior { margin-top: 3rem; }
+.espacio-inferior { margin-bottom: 3rem; }
+.margen-abajo { margin-bottom: 1.5rem; }
+.ancho-completo { width: 100%; }
+
+/* Layout de Tarjetas flex */
+.cuerpo-tarjeta {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    height: 100%;
+}
+.anclar-fondo {
+    margin-top: auto; /* Empuja el botón al fondo */
+}
+
+/* Estilos consultas.blade.php */
+.enlace-volver {
+    color: #a0aec0;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+.enlace-volver:hover {
+    color: #ff0303;
+}
+
+.imagen-detalle {
+    height: 450px; /* Más alto que el catálogo */
+    border-right: 1px solid #2d3748; /* Borde separador */
+    border-radius: 12px 0 0 12px;
+}
+
+.info-detalle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 2.5rem;
+}
+
+.lista-specs {
+    list-style-type: square;
+    padding-left: 1.5rem;
+}
+.lista-specs li {
+    margin-bottom: 0.5rem;
+}
