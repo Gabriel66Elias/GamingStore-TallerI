@@ -31,7 +31,7 @@ body {
 }
 
 .card-body {
-    padding: 2rem; /* Espaciado interno cómodo [cite: 942] */
+    padding: 2rem; /* Espaciado interno cómodo */
 }
 
 /* Títulos y Acentos */
@@ -91,7 +91,7 @@ h1, h2, h3 {
 .contenedor-img {
     height: 250px; /* Altura fija para que todas las fotos empiecen y terminen igual */
     background-color: white; /* Fondo blanco para que tus fotos WebP/JPG se integren bien */
-    display: flex;
+    display: contents;
     align-items: center;
     justify-content: center;
     padding: 20px;

@@ -17,10 +17,10 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card shadow">
                 <div class="contenedor-img">
-                    <img src="/img/ps5.webp" alt="PlayStation 5">
+                    <img src="/img/ps5.webp" class="img-fluid" alt="PlayStation 5">
                 </div>
                 <div class="card-body flex-column">
-                    <h5 class="card-title text-white fw-bold">PlayStation 5</h5>
+                    <h5 class="card-title text-black fw-bold">PlayStation 5</h5>
                     <p class="card-text text-secondary mb-4">Consola física con lector de discos.</p>
                     <div class="mt-auto"> {{-- Esto empuja el botón al fondo de la card--}}
                         <a href="/consultas" class="btn btn-primary w-100">Consultar</a>
@@ -32,10 +32,10 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card shadow">
                 <div class="contenedor-img">
-                    <img src="/img/switch.webp" alt="Nintendo Switch">
+                    <img src="/img/switch.webp" class="img-fluid" alt="Nintendo Switch">
                 </div>
                 <div class="card-body flex-column">
-                    <h5 class="card-title text-white fw-bold">Nintendo Switch</h5>
+                    <h5 class="card-title text-black fw-bold">Nintendo Switch</h5>
                     <p class="card-text text-secondary mb-4">Versión física con mandos Joy-Con.</p>
                     <div class="mt-auto">
                         <a href="/consultas" class="btn btn-primary w-100">Consultar</a>
