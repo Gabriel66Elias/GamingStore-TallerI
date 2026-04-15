@@ -102,7 +102,7 @@ h1, h2, h3 {
 .contenedor-img img {
     max-height: 100%; /* La imagen no se estira, se adapta al contenedor */
     max-width: 100%;
-    object-fit: contain; /* Mantiene la proporción original del producto */
+    object-fit: c; /* Mantiene la proporción original del producto */
 }
 
 /* 3. El texto y el botón siempre alineados */
