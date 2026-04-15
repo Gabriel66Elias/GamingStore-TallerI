@@ -17,7 +17,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card shadow">
                 <div class="contenedor-img">
-                    <img src="/img/ps5.webp" alt="PlayStation 5">
+                    <img src="/img/new/PS5.jpg" alt="PlayStation 5">
                 </div>
                 <div class="card-body flex-column">
                     <h5 class="card-title text-white fw-bold">PlayStation 5</h5>
@@ -32,7 +32,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card shadow">
                 <div class="contenedor-img">
-                    <img src="/img/switch.webp" alt="Nintendo Switch">
+                    <img src="/img/switch.jpg" alt="Nintendo Switch">
                 </div>
                 <div class="card-body flex-column">
                     <h5 class="card-title text-white fw-bold">Nintendo Switch</h5>
