@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactoController; //controlador para el formulario de contacto
 
 // Rutas estáticas de tu página
 Route::get('/', function () {
@@ -56,3 +57,12 @@ Route::get('/consulta/{id}', function ($id) {
     // Enviamos los datos a la vista "consulta.blade.php"
     return view('consultas', compact('producto'));
 });
+
+//funcionalidad de Contacto
+// Mostrar la página
+Route::get('/contacto', function () {
+    return view('contacto');
+});
+
+// Procesar el formulario (POST)
+Route::post('/contacto', [ContactoController::class, 'procesar']);

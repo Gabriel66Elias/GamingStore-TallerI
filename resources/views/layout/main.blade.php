@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
+
 <body class="bg-dark text-light">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary">
@@ -20,7 +22,6 @@
             </div>
         </div>
     </nav>
-
     <main>
         @yield('contenido')
     </main>
@@ -31,4 +32,5 @@
 
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

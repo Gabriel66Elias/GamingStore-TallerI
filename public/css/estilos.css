@@ -35,7 +35,7 @@ body {
 
 /* Títulos y Acentos */
 h1, h2, h3 {
-    color: #000000; /* Mantenemos tu rojo característico para los títulos [cite: 950] */
+    color: #ffffff; /* Mantenemos tu rojo característico para los títulos*/
     font-weight: bold;
     text-transform: uppercase; /* Estilo agresivo de gaming */
     letter-spacing: 1px;
@@ -43,12 +43,12 @@ h1, h2, h3 {
 
 /* Personalización de la Navbar */
 .navbar {
-    background-color: #000000 !important; /* Negro puro para la barra superior [cite: 955] */
+    background-color: #000000 !important; /* Negro puro para la barra superior */
     border-bottom: 2px solid #000000; /* Línea roja delgada para unir con tu marca */
 }
 
 .nav-link {
-    color: #cbd5e0 !important;
+    color: #ffffff !important;
     font-weight: 500;
 }
 
@@ -155,7 +155,7 @@ h1, h2, h3 {
     transition: color 0.3s ease;
 }
 .enlace-volver:hover {
-    color: #ff0303;
+    color: #331dac;
 }
 
 .imagen-detalle {
@@ -178,4 +178,14 @@ h1, h2, h3 {
 }
 .lista-specs li {
     margin-bottom: 0.5rem;
+}
+
+/* Estilos para contacto.blade.php */
+.form-control::placeholder {
+    color: #9f9f9f;
+    opacity: 1;
+}
+.form-control::focus::placeholder{
+    color: rgba(255,255,255,0.5) !important;
+    transition: color 0.3s ease;
 }
