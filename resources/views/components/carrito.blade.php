@@ -6,9 +6,7 @@
     </div>
     
     <div class="offcanvas-body p-4 d-flex flex-column">
-        {{-- Aplicamos 'grow' aquí --}}
         <div id="contenedor-items-carrito" class="grow overflow-auto pe-2">
-            {{-- JS inyectará contenido aquí --}}
         </div>
         
         <div class="cart-footer-modern mt-auto">

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PROYECTO: GamingStation (E-commerce Universitario)
+   PROYECTO: GamingStation
    ARCHIVO: estilos.css
    DESCRIPCIÓN: Hoja de estilos principal, complementaria a Bootstrap 5.3.
    ========================================================================== */
@@ -98,7 +98,7 @@ h1, h2, h3 {
    4. TARJETAS DE PRODUCTO (Catálogo)
    Se usan en: components/producto-card.blade.php
    -------------------------------------------------------------------------- */
-   
+
 .tarjeta-producto{
     overflow: hidden;
     height: 100%;

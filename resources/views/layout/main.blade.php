@@ -69,7 +69,7 @@
         </div>
     </nav>
 
-    {{-- CONTENIDO DINÁMICO --}}
+
     <main>
         @yield('contenido')
     </main>
@@ -87,13 +87,13 @@
         </div>
     </footer>
 
-    {{-- COMPONENTE DEL CARRITO (OFFCANVAS) --}}
+    {{-- COMPONENTE DEL CARRITO --}}
     <x-carrito />
 
     {{-- SCRIPTS BASE --}}
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    {{-- LÓGICA DEL CARRITO (MOTOR DEL E-COMMERCE) --}}
+    {{-- LÓGICA DEL CARRITO --}}
     <script>
         // Inicialización desde LocalStorage
         let carrito = JSON.parse(localStorage.getItem('gaming_station_cart')) || [];
@@ -119,7 +119,7 @@
 
             guardarYRenderizar();
 
-            // Abrir el panel lateral automáticamente
+            // funacion para abrir el panel lateral automáticamente
             const cartEl = document.getElementById('carritoLateral');
             const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(cartEl);
             bsOffcanvas.show();
@@ -136,7 +136,7 @@
 
             if (nuevaCantidad > item.stock) {
                 alert(`No puedes superar el stock disponible (${item.stock} unidades).`);
-                renderizarCarrito(); // Revertir visualmente al valor anterior
+                renderizarCarrito();
                 return;
             }
 
@@ -165,9 +165,6 @@
             renderizarCarrito();
         }
 
-        /**
-         * Renderiza los items en el Offcanvas y actualiza el Badge del Navbar
-         */
         function renderizarCarrito() {
             const contenedor = document.getElementById('contenedor-items-carrito');
             const totalTxt = document.getElementById('total-carrito');
@@ -195,7 +192,6 @@
                 return;
             }
 
-            // Renderizado de items con el nuevo estilo minimalista
             let totalGeneral = 0;
             contenedor.innerHTML = carrito.map(item => {
         totalGeneral += item.precio * item.cantidad;

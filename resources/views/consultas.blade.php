@@ -9,7 +9,6 @@
         </a>
     </div>
 
-    {{-- Implementamos nuestro nuevo contenedor minimalista --}}
     <div class="detalle-wrapper">
         <div class="row g-0">
 
@@ -48,7 +47,6 @@
                         </div>
 
                         <div class="d-flex gap-3 align-items-center">
-                            {{-- Input moderno --}}
                             <div>
                                 <input type="number" id="input-cantidad" class="input-cantidad-moderno"
                                        value="1" min="1" max="{{ $producto['stock'] }}">
