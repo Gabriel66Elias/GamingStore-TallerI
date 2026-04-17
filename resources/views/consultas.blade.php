@@ -1,10 +1,8 @@
 @extends('layout.main')
-
-@section('titulo', $producto['nombre']) 
-
+@section('titulo', $producto['nombre'])
 @section('contenido')
 <div class="container espacio-superior espacio-inferior mt-5">
-    
+
     <div class="mb-4">
         <a href="/catalogo" class="enlace-volver text-decoration-none text-secondary">
             <i class="bi bi-arrow-left me-2"></i>Volver al catálogo
@@ -14,7 +12,7 @@
     {{-- Implementamos nuestro nuevo contenedor minimalista --}}
     <div class="detalle-wrapper">
         <div class="row g-0">
-            
+
             {{-- Columna Izquierda: Imagen del Producto --}}
             <div class="col-md-6 border-end border-secondary border-opacity-25">
                 <div class="detalle-img-container">
@@ -27,7 +25,7 @@
                 <div class="detalle-info-container grow">
                     <h1 class="titulo-producto fw-bold text-uppercase mb-2">{{ $producto['nombre'] }}</h1>
                     <div class="detalle-precio mb-4">${{ number_format($producto['precio'], 0, ',', '.') }}</div>
-                    
+
                     <p class="text-secondary mb-5 lh-lg">
                         {{ $producto['descripcion'] }}
                     </p>
@@ -48,14 +46,14 @@
                                 <i class="bi bi-box-seam me-2"></i>Stock: <span class="fw-bold text-white">{{ $producto['stock'] }}</span> disponibles
                             </span>
                         </div>
-                        
+
                         <div class="d-flex gap-3 align-items-center">
                             {{-- Input moderno --}}
                             <div>
-                                <input type="number" id="input-cantidad" class="input-cantidad-moderno" 
+                                <input type="number" id="input-cantidad" class="input-cantidad-moderno"
                                        value="1" min="1" max="{{ $producto['stock'] }}">
                             </div>
-                            
+
                             {{-- Botón de Acción --}}
                             <button class="btn btn-primary w-100 fw-bold" style="height: 55px; border-radius: 10px;"
                                     onclick="agregarAlCarrito('{{ Request::route('id') }}', '{{ $producto['nombre'] }}', {{ $producto['precio'] }}, {{ $producto['stock'] }}, '{{ $producto['imagen'] }}')">
@@ -63,7 +61,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 

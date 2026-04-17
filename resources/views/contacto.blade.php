@@ -41,7 +41,7 @@
                         <div class="card-body">
                             <h3 class="h3 mb-4">Envianos tu consulta</h3>
                             <form action="{{ url('/contacto') }}" method="POST">
-                                @csrf  <!--TOKEN DE SEGURIDAD DE LARAVEL-->
+                                @csrf <!--TOKEN DE SEGURIDAD DE LARAVEL-->
                                 <div class="mb-3 text-start">
                                     <label class="form-label">Nombre Completo</label>
                                     <input type="text" name="nombre"

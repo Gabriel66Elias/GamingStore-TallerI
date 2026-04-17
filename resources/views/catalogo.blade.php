@@ -1,7 +1,5 @@
 @extends('layout.main')
-
-@section('titulo', 'Catálogo') 
-
+@section('titulo', 'Catálogo')
 @section('contenido')
     <div class="container mt-5">
         <h2 class="text-center mb-5 text-white">Consolas y Accesorios</h2>
