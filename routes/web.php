@@ -1,68 +1,99 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactoController; //controlador para el formulario de contacto
+use App\Http\Controllers\ContactoController;
 
-// Rutas estáticas de tu página
+// --- Rutas estáticas ---
 Route::get('/', function () {
     return view('principal');
 });
+
 Route::get('/quienes-somos', function () {
     return view('quienes-somos');
 });
+
 Route::get('/comercializacion', function () {
     return view('comercializacion');
 });
-Route::get('/contacto', function () {
-    return view('contacto');
-});
+
 Route::get('/terminos', function () {
     return view('terminos');
 });
-Route::get('/catalogo', function () {
-    return view('catalogo');
+
+// --- Lógica de Productos (Mock de Base de Datos) ---
+// Definimos el array una sola vez para evitar errores de inconsistencia
+$productos = [
+    0 => [
+        'nombre' => 'PlayStation 5',
+        'descripcion' => 'Vive una experiencia de juego de nueva generación con la PlayStation 5.',
+        'imagen' => '/img/ps5.webp',
+        'precio' => 1200000,
+        'stock' => 1,
+        'specs' => ['Procesador AMD Ryzen Zen 2', '825GB SSD', 'DualSense included']
+    ],
+    1 => [
+        'nombre' => 'Mando - PlayStation 5',
+        'descripcion' => 'Descubre una experiencia de juego más profunda con retroalimentación háptica.',
+        'imagen' => '/img/mando-ps5.webp',
+        'precio' => 75000,
+        'stock' => 5,
+        'specs' => ['Retroalimentación háptica', 'Gatillos adaptativos']
+    ],
+    2 => [
+        'nombre' => 'Nintendo Switch',
+        'descripcion' => 'Juega en el televisor o en modo portátil con total libertad.',
+        'imagen' => '/img/sw2.webp',
+        'precio' => 459999,
+        'stock' => 10,
+        'specs' => ['Pantalla 6.2"', '32GB memoria', 'Joy-Con']
+    ],
+    3 => [
+        'nombre' => 'Tarjeta grafica RTX 5090',
+        'descripcion' => 'Descubre la tarjeta grafica mas poderosa de nvidea.',
+        'imagen' => '/img/rtx5090.webp',
+        'precio' => 2600000,
+        'stock' => 2,
+        'specs' => ['32GB GDDR7', 'Arquitectura Blackwell', 'DLSS 4.0']
+    ],
+    4 => [
+        'nombre' => 'Tarjeta grafica RX 6600xt',
+        'descripcion' => 'Tarjeta grafica de gama media exelente para juego en 1080p',
+        'imagen' => '/img/rx6600xt.webp',
+        'precio' => 450000,
+        'stock' => 3,
+        'specs' => ['8GB GDDR6', 'FSR 3.0', '1080p Ultra']
+    ],
+    5 => [
+        'nombre' => 'Memoria RAM 32gb (x2 16gb) HyperX',
+        'descripcion' => 'Pack de 2 memorias ram de 16gb 3200hz con rgb',
+        'imagen' => '/img/ram.webp',
+        'precio' => 9800999,
+        'stock' => 3,
+        'specs' => ['3200MHz', 'CL16', 'RGB Lighting']
+    ],
+];
+
+// --- Rutas Dinámicas ---
+
+// Catálogo: Pasamos el array completo
+Route::get('/catalogo', function () use ($productos) {
+    return view('catalogo', ['productos' => $productos]);
 });
 
-// Ruta dinámica para el detalle de cada producto
-Route::get('/consulta/{id}', function ($id) {
-    // Simulación de base de datos
-    $productos = [
-        0 => [
-            'nombre' => 'PlayStation 5',
-            'descripcion' => 'Vive una experiencia de juego de nueva generación con la PlayStation 5. Incluye tecnología de trazado de rayos y carga ultra rápida.',
-            'imagen' => '/img/ps5.webp',
-            'specs' => ['Procesador AMD Ryzen Zen 2', 'Gráficos RDNA 2', '825GB SSD de ultra alta velocidad']
-        ],
-        1 => [
-            'nombre' => 'Mando - PlayStation 5',
-            'descripcion' => 'Descubre una experiencia de juego más profunda con el innovador mando de PS5, con retroalimentación háptica.',
-            'imagen' => '/img/mando-ps5.webp',
-            'specs' => ['Retroalimentación háptica', 'Gatillos adaptativos', 'Micrófono integrado', 'Batería recargable']
-        ],
-        2 => [
-            'nombre' => 'Nintendo Switch',
-            'descripcion' => 'La consola que se adapta a tu ritmo de vida. Juega en el televisor o en modo portátil con total libertad.',
-            'imagen' => '/img/switch.webp',
-            'specs' => ['Pantalla de 6.2 pulgadas', '32GB de almacenamiento', 'Mandos Joy-Con incluidos', 'Autonomía de 4.5 a 9 horas']
-        ]
-    ];
-
-    // Si el usuario pone un ID que no existe (ej: /consulta/99), lo devolvemos al catálogo
+// Detalle de Producto: Esta es la ruta que te faltaba y causaba el 404
+Route::get('/consulta/{id}', function ($id) use ($productos) {
+    // Verificamos si el ID existe en nuestro array
     if (!isset($productos[$id])) {
         return redirect('/catalogo');
     }
 
     $producto = $productos[$id];
-
-    // Enviamos los datos a la vista "consulta.blade.php"
     return view('consultas', compact('producto'));
 });
 
-//funcionalidad de Contacto
-// Mostrar la página
+// --- Funcionalidad de Contacto ---
 Route::get('/contacto', function () {
     return view('contacto');
 });
 
-// Procesar el formulario (POST)
 Route::post('/contacto', [ContactoController::class, 'procesar']);

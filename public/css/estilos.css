@@ -1,191 +1,306 @@
-body {
+/* ==========================================================================
+   PROYECTO: GamingStation (E-commerce Universitario)
+   ARCHIVO: estilos.css
+   DESCRIPCIÓN: Hoja de estilos principal, complementaria a Bootstrap 5.3.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ESTILOS GLOBALES Y BASE
+   Se usan en: Todas las vistas (layout/main.blade.php)
+   -------------------------------------------------------------------------- */
+   body {
     font-family: 'Arial', sans-serif;
-    background-color: #0b1218;
-    color: hsl(0, 0%, 100%);
+    background-color: #0b1218; /* Color de fondo base del sitio (Dark Mode) */
+    color: #ffffff; /* Color de texto base */
     margin: 0;
     padding: 0;
 }
 
-/* Ajustes del Contenedor Principal */
-.container {
-    margin-top: 8px; /* Espaciado superior para que no pegue al navbar */
-}
-
-/* Personalización de Tarjetas (Cards) */
-.card {
-    border: 1px solid #000000; /* Borde sutil para definir la forma */
-    border-radius: 12px; /* Esquinas redondeadas modernas */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5); /* Sombra profunda para dar relieve */
-    transition: all 0.3s ease; /* Efecto suave para cuando pasemos el mouse */
-    background-color: #1a232e !important; /* Azul muy oscuro */
-    border: 1px solid #2d3748 !important;
-    color: #496fd8 !important; /* Todo el texto dentro será blanco */
-    border-radius: 12px;
-    overflow: hidden;
-    height: 100%;
-}
-
-.card:hover {
-    transform: translateY(-10px); /* La tarjeta sube un poquito al pasar el mouse */
-}
-
-.card-body {
-    padding: 10rem; /* Espaciado interno cómodo */
-}
-
-/* Títulos y Acentos */
+/* Modificadores globales para títulos */
 h1, h2, h3 {
-    color: #ffffff; /* Mantenemos tu rojo característico para los títulos*/
     font-weight: bold;
-    text-transform: uppercase; /* Estilo agresivo de gaming */
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Personalización de la Navbar */
+/* --------------------------------------------------------------------------
+   2. NAVBAR Y HEADER
+   Se usan en: layout/main.blade.php
+   -------------------------------------------------------------------------- */
 .navbar {
-    background-color: #000000 !important; /* Negro puro para la barra superior */
-    border-bottom: 2px solid #000000; /* Línea roja delgada para unir con tu marca */
+    background-color: #000000 !important; /* Fuerza el navbar a negro puro */
+    border-bottom: 2px solid #000000;
 }
 
 .nav-link {
     color: #ffffff !important;
     font-weight: 500;
+    transition: color 0.3s ease; /* Transición suave al pasar el mouse */
 }
 
-.nav-link:hover {
-    color: #331dac !important; /* El enlace brilla en rojo al pasar el mouse [cite: 964-967] */
+.nav-link:hover, .nav-link.active {
+    color: #3b1691 !important; /* Color primario (Morado/Azul) al hacer hover o estar activo */
 }
 
-/* Botones Personalizados */
+/* Contenedor relativo para posicionar el número del carrito encima del botón */
+.btn-cart-container {
+    position: relative; 
+}
+
+/* El círculo rojo con el número de items en el carrito */
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ef4444; 
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   3. COMPONENTES GLOBALES (Botones y Formularios)
+   Se usan en: Múltiples vistas (Catálogo, Contacto, Consultas)
+   -------------------------------------------------------------------------- */
 .btn-primary {
-    background-color: #3b1691; /* Cambiamos el azul de Bootstrap por tu rojo */
+    background-color: #3b1691; /* Color principal de marca */
     border: none;
     font-weight: bold;
     padding: 10px 25px;
     border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #095ac4; /* Un rojo más oscuro al presionar */
-    box-shadow: 0 0 15px #095ac4; /* Efecto de brillo "neon" */
+    background-color: #2a0f6a; /* Tono más oscuro para el estado hover */
+    box-shadow: 0 0 15px rgba(59, 22, 145, 0.5); /* Resplandor neon */
 }
 
-/* Ajuste de la imagen para que no quede "pegada" y tenga buen tamaño */
-.img-catalogo {
-    width: 100%;
-    height: 220px;
-    object-fit: contain; /* Cambiamos a 'contain' si tus fotos tienen fondo blanco, así no se cortan */
-    background-color: #000000; /* Le dejamos el fondo blanco solo a la zona de la imagen */
-    padding: 15px; /* Le damos aire al producto */
-}
-
-/* Títulos de los productos */
-.card-title {
-    color: #ffffff; /* Tu rojo de marca */
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-/* 2. El contenedor de la imagen: esto es lo que arregla el "desorden" */
-.contenedor-img {
-    height: 250px; /* Altura fija para que todas las fotos empiecen y terminen igual */
-    background-color: rgb(255, 255, 255); /* Fondo blanco para que tus fotos WebP/JPG se integren bien */
-    display: contents;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-
-.contenedor-img img {
-    max-height: 100%; /* La imagen no se estira, se adapta al contenedor */
-    max-width: 100%;
-    object-fit: contain; /* Mantiene la proporción original del producto */
-}
-
-/* 3. El texto y el botón siempre alineados */
-.card-body {
-    display: flex;
-    flex-direction: column; /* Permite usar mt-auto para el botón */
-    text-align: center;
-    padding: 1.5rem;
-}
-
-/* Tipografía y Textos */
-.texto-gris {
-    color: #a0aec0; /* Gris elegante para descripciones */
-}
-.titulo-centrado {
-    text-align: center;
-}
-.titulo-producto {
-    font-size: 2.5rem;
-    color: #ffffff;
-    margin-bottom: 1rem;
-}
-.descripcion-producto {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #cbd5e0;
-}
-
-/* Espaciados y Utilidades */
-.espacio-superior { margin-top: 3rem; }
-.espacio-inferior { margin-bottom: 3rem; }
-.margen-abajo { margin-bottom: 1.5rem; }
-.ancho-completo { width: 100%; }
-
-/* Layout de Tarjetas flex */
-.cuerpo-tarjeta {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    height: 100%;
-}
-.anclar-fondo {
-    margin-top: auto; /* Empuja el botón al fondo */
-}
-
-/* Estilos consultas.blade.php */
-.enlace-volver {
-    color: #a0aec0;
-    text-decoration: none;
-    display: inline-block;
-    transition: color 0.3s ease;
-}
-.enlace-volver:hover {
-    color: #331dac;
-}
-
-.imagen-detalle {
-    height: 450px; /* Más alto que el catálogo */
-    border-right: 1px solid #2d3748; /* Borde separador */
-    border-radius: 12px 0 0 12px;
-}
-
-.info-detalle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    padding: 2.5rem;
-}
-
-.lista-specs {
-    list-style-type: square;
-    padding-left: 1.5rem;
-}
-.lista-specs li {
-    margin-bottom: 0.5rem;
-}
-
-/* Estilos para contacto.blade.php */
+/* Ajusta el color del placeholder en los inputs oscuros (contacto.blade.php) */
 .form-control::placeholder {
     color: #9f9f9f;
     opacity: 1;
 }
-.form-control::focus::placeholder{
-    color: rgba(255,255,255,0.5) !important;
-    transition: color 0.3s ease;
+
+.form-control:focus::placeholder{
+    color: rgba(255,255,255,0.3); /* Atenúa el texto cuando el usuario hace clic */
+}
+
+/* --------------------------------------------------------------------------
+   4. TARJETAS DE PRODUCTO (Catálogo)
+   Se usan en: components/producto-card.blade.php
+   -------------------------------------------------------------------------- */
+.card {
+    background-color: #1a232e !important;
+    border: 1px solid #2d3748 !important;
+    color: #ffffff !important;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    height: 100%; /* Asegura que todas las tarjetas midan lo mismo */
+}
+
+.card:hover {
+    transform: translateY(-8px); /* Efecto de elevación al hacer hover */
+}
+
+/* Hack CSS para forzar que el contenedor de la imagen sea un cuadrado perfecto 1:1 */
+.contenedor-img {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; 
+    position: relative;
+    overflow: hidden;
+}
+
+/* Recorta la imagen para que llene el cuadrado sin deformarse */
+.contenedor-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center;
+}
+
+/* Etiqueta de precio destacada en el catálogo */
+.precio-catalogo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #4ade80; /* Verde neón */
+    letter-spacing: 0.5px;
+    background: rgba(74, 222, 128, 0.1);
+    padding: 5px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   5. VISTA DE DETALLE DEL PRODUCTO
+   Se usan en: vistas/consultas.blade.php
+   -------------------------------------------------------------------------- */
+/* Contenedor principal de la página de detalle */
+.detalle-wrapper {
+    background-color: #111827; 
+    border: 1px solid #1f2937; 
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Sección izquierda: Fondo radial que simula luz sobre el producto */
+.detalle-img-container {
+    background: radial-gradient(circle at center, #1f2937 0%, #111827 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    height: 100%;
+    min-height: 450px;
+}
+
+.detalle-img-container img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain; /* Evita que la imagen original se corte */
+    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.6)); /* Sombra 3D a la silueta */
+    transition: transform 0.4s ease;
+}
+
+.detalle-img-container:hover img {
+    transform: scale(1.05);
+}
+
+/* Sección derecha: Contenedor de la información */
+.detalle-info-container {
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #151c24;
+    height: 100%;
+}
+
+.detalle-precio {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #4ade80;
+    letter-spacing: -1px;
+}
+
+/* Lista de viñetas personalizadas para las especificaciones */
+.detalle-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detalle-specs li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    color: #9ca3af;
+    font-size: 1.05rem;
+}
+
+/* Inyecta un tilde (✓) morado antes de cada item de la lista */
+.detalle-specs li::before {
+    content: "✓"; 
+    position: absolute;
+    left: 0;
+    color: #3b1691;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Input numérico personalizado para seleccionar cantidad */
+.input-cantidad-moderno {
+    background-color: #0b1218;
+    border: 1px solid #374151;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+    height: 55px;
+    font-size: 1.2rem;
+    width: 80px;
+    transition: border-color 0.3s ease;
+}
+
+.input-cantidad-moderno:focus {
+    border-color: #4ade80;
+    outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. CARRITO LATERAL (OFFCANVAS)
+   Se usan en: components/carrito.blade.php
+   -------------------------------------------------------------------------- */
+/* Redefine el panel lateral de Bootstrap */
+.offcanvas-minimalist {
+    background-color: #0f172a !important;
+    color: #f8fafc;
+    border-left: 1px solid #1e293b !important;
+    width: 400px !important;
+}
+
+/* Personaliza la barra de desplazamiento (Scrollbar) dentro del carrito */
+#contenedor-items-carrito::-webkit-scrollbar {
+    width: 5px;
+}
+#contenedor-items-carrito::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+#contenedor-items-carrito::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+/* Tarjeta individual de producto agregado al carrito */
+.cart-item-modern {
+    background-color: #1e293b;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.cart-item-modern:hover {
+    background-color: #334155;
+    transform: translateX(-5px); /* Desplazamiento sutil a la izquierda */
+    border-color: #475569;
+}
+
+/* Contenedor miniatura de la imagen en el carrito */
+.cart-item-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    background: white; /* Único fondo blanco permitido para legibilidad */
+    border-radius: 8px;
+    padding: 5px;
+}
+
+/* Footer del carrito (Área de Total y Pagar) */
+.cart-footer-modern {
+    background-color: #0f172a;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid #1e293b;
+}
+
+.cart-total-amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #4ade80;
 }
