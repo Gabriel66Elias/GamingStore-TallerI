@@ -8,7 +8,6 @@
         
         <div class="card-body d-flex flex-column">
             <h5 class="card-title fw-bold mb-3">{{ $producto['nombre'] }}</h5>
-            {{-- El contenedor del precio y botón usa mt-auto para empujarse hacia abajo --}}
             <div class="mt-auto">
                 <div class="precio-catalogo mb-3">
                     ${{ number_format($producto['precio'], 0, ',', '.') }}

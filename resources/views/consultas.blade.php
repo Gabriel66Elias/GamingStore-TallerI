@@ -11,7 +11,6 @@
         </a>
     </div>
 
-    {{-- Implementamos nuestro nuevo contenedor minimalista --}}
     <div class="detalle-wrapper">
         <div class="row g-0">
             
@@ -50,13 +49,12 @@
                         </div>
                         
                         <div class="d-flex gap-3 align-items-center">
-                            {{-- Input moderno --}}
                             <div>
                                 <input type="number" id="input-cantidad" class="input-cantidad-moderno" 
                                        value="1" min="1" max="{{ $producto['stock'] }}">
                             </div>
                             
-                            {{-- Botón de Acción --}}
+                            {{-- Boton para agregar ak carrito --}}
                             <button class="btn btn-primary w-100 fw-bold" style="height: 55px; border-radius: 10px;"
                                     onclick="agregarAlCarrito('{{ Request::route('id') }}', '{{ $producto['nombre'] }}', {{ $producto['precio'] }}, {{ $producto['stock'] }}, '{{ $producto['imagen'] }}')">
                                 <i class="bi bi-cart-plus me-2 fs-5"></i>Agregar al Carrito

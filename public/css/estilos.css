@@ -1,306 +1,229 @@
-/* ==========================================================================
-   PROYECTO: GamingStation (E-commerce Universitario)
-   ARCHIVO: estilos.css
-   DESCRIPCIÓN: Hoja de estilos principal, complementaria a Bootstrap 5.3.
-   ========================================================================== */
+@extends('layout.main')
 
-/* --------------------------------------------------------------------------
-   1. ESTILOS GLOBALES Y BASE
-   Se usan en: Todas las vistas (layout/main.blade.php)
-   -------------------------------------------------------------------------- */
-   body {
-    font-family: 'Arial', sans-serif;
-    background-color: #0b1218; /* Color de fondo base del sitio (Dark Mode) */
-    color: #ffffff; /* Color de texto base */
-    margin: 0;
-    padding: 0;
-}
+@section('titulo', 'Finalizar Compra')
 
-/* Modificadores globales para títulos */
-h1, h2, h3 {
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+@section('contenido')
+{{-- BLOCO DE ESTILOS LOCAL PARA CORRIGIR O BUG DOS CARTÕES --}}
+<style>
+    .card-checkout {
+        height: auto !important; /* Impede que o cartão estique infinitamente */
+    }
+    .card-checkout:hover {
+        transform: none !important; /* Anula o salto ao passar o rato */
+        border-color: #2d3748 !important; /* Mantém a cor da borda estática */
+    }
+</style>
 
-/* --------------------------------------------------------------------------
-   2. NAVBAR Y HEADER
-   Se usan en: layout/main.blade.php
-   -------------------------------------------------------------------------- */
-.navbar {
-    background-color: #000000 !important; /* Fuerza el navbar a negro puro */
-    border-bottom: 2px solid #000000;
-}
+<div class="container mt-5 mb-5">
+    <h2 class="fw-bold mb-4 text-uppercase">Finalizar Compra</h2>
 
-.nav-link {
-    color: #ffffff !important;
-    font-weight: 500;
-    transition: color 0.3s ease; /* Transición suave al pasar el mouse */
-}
+    <form action="#" method="POST" id="form-checkout">
+        @csrf
+        <div class="row g-4">
+            
+            {{-- COLUNA ESQUERDA: Formulários de Dados --}}
+            <div class="col-lg-8">
+                
+                {{-- 1. Dados Pessoais e de Envio --}}
+                <div class="card card-checkout bg-dark border-secondary mb-4 shadow-sm">
+                    <div class="card-header border-secondary bg-black py-3">
+                        <h5 class="mb-0 fw-bold text-white"><i class="bi bi-person-lines-fill me-2"></i>1. Datos de Facturación y Entrega</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary small">Nombre</label>
+                                <input type="text" class="form-control bg-dark text-white border-secondary" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary small">Apellido</label>
+                                <input type="text" class="form-control bg-dark text-white border-secondary" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label text-secondary small">Email</label>
+                                <input type="email" class="form-control bg-dark text-white border-secondary" required>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary small">Provincia</label>
+                                <select class="form-select bg-dark text-white border-secondary" required>
+                                    <option selected disabled value="">Seleccione...</option>
+                                    <option>Buenos Aires</option>
+                                    <option>CABA</option>
+                                    <option>Catamarca</option>
+                                    <option>Chaco</option>
+                                    <option>Chubut</option>
+                                    <option>Córdoba</option>
+                                    <option>Corrientes</option>
+                                    <option>Entre Ríos</option>
+                                    <option>Formosa</option>
+                                    <option>Jujuy</option>
+                                    <option>La Pampa</option>
+                                    <option>La Rioja</option>
+                                    <option>Mendoza</option>
+                                    <option>Misiones</option>
+                                    <option>Neuquén</option>
+                                    <option>Río Negro</option>
+                                    <option>Salta</option>
+                                    <option>San Juan</option>
+                                    <option>San Luis</option>
+                                    <option>Santa Cruz</option>
+                                    <option>Santa Fe</option>
+                                    <option>Santiago del Estero</option>
+                                    <option>Tierra del Fuego</option>
+                                    <option>Tucumán</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary small">Localidad</label>
+                                <input type="text" class="form-control bg-dark text-white border-secondary" required>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-label text-secondary small">Dirección (Calle y altura)</label>
+                                <input type="text" class="form-control bg-dark text-white border-secondary" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label text-secondary small">Código Postal</label>
+                                <input type="text" class="form-control bg-dark text-white border-secondary" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-.nav-link:hover, .nav-link.active {
-    color: #3b1691 !important; /* Color primario (Morado/Azul) al hacer hover o estar activo */
-}
+                {{-- 2. Método de Envio --}}
+                <div class="card card-checkout bg-dark border-secondary mb-4 shadow-sm">
+                    <div class="card-header border-secondary bg-black py-3">
+                        <h5 class="mb-0 fw-bold text-white"><i class="bi bi-box-seam me-2"></i>2. Método de Envío</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="form-check border border-secondary rounded p-3 mb-3 d-flex align-items-center">
+                            <input class="form-check-input ms-1 me-3" type="radio" name="envio" id="envioCorreo" value="8500" required>
+                            <label class="form-check-label w-100 d-flex justify-content-between align-items-center cursor-pointer" for="envioCorreo">
+                                <span><strong>Correo Argentino (Paq.ar)</strong><br><small class="text-secondary">Envío a domicilio (3 a 5 días hábiles)</small></span>
+                                <span class="text-success fw-bold">+$8.500</span>
+                            </label>
+                        </div>
+                        <div class="form-check border border-secondary rounded p-3 d-flex align-items-center">
+                            <input class="form-check-input ms-1 me-3" type="radio" name="envio" id="envioLocal" value="0" required>
+                            <label class="form-check-label w-100 d-flex justify-content-between align-items-center cursor-pointer" for="envioLocal">
+                                <span><strong>Retiro en Local</strong><br><small class="text-secondary">Av. 25 de Mayo 1234, Corrientes</small></span>
+                                <span class="text-success fw-bold">Gratis</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
-/* Contenedor relativo para posicionar el número del carrito encima del botón */
-.btn-cart-container {
-    position: relative; 
-}
+                {{-- 3. Método de Pagamento --}}
+                <div class="card card-checkout bg-dark border-secondary shadow-sm">
+                    <div class="card-header border-secondary bg-black py-3">
+                        <h5 class="mb-0 fw-bold text-white"><i class="bi bi-credit-card me-2"></i>3. Método de Pago</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="form-check border border-secondary rounded p-3 mb-3 d-flex align-items-center">
+                            <input class="form-check-input ms-1 me-3" type="radio" name="pago" id="pagoMercadoPago" required>
+                            <label class="form-check-label cursor-pointer" for="pagoMercadoPago">
+                                <strong>Mercado Pago</strong><br><small class="text-secondary">Tarjetas de crédito, débito o dinero en cuenta.</small>
+                            </label>
+                        </div>
+                        <div class="form-check border border-secondary rounded p-3 d-flex align-items-center">
+                            <input class="form-check-input ms-1 me-3" type="radio" name="pago" id="pagoTransferencia" required>
+                            <label class="form-check-label cursor-pointer" for="pagoTransferencia">
+                                <strong>Transferencia Bancaria</strong><br><small class="text-secondary">10% de descuento abonando por este medio.</small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
-/* El círculo rojo con el número de items en el carrito */
-.cart-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #ef4444; 
-    color: white;
-    font-size: 0.7rem;
-    font-weight: bold;
-    min-width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #000;
-    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
-}
+            </div>
 
-/* --------------------------------------------------------------------------
-   3. COMPONENTES GLOBALES (Botones y Formularios)
-   Se usan en: Múltiples vistas (Catálogo, Contacto, Consultas)
-   -------------------------------------------------------------------------- */
-.btn-primary {
-    background-color: #3b1691; /* Color principal de marca */
-    border: none;
-    font-weight: bold;
-    padding: 10px 25px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
+            {{-- COLUNA DIREITA: Resumo da Ordem --}}
+            <div class="col-lg-4">
+                <div class="card card-checkout bg-black border-primary shadow-lg sticky-top" style="top: 100px;">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold mb-4 border-bottom border-secondary pb-2">Resumen de Orden</h4>
+                        
+                        {{-- O JS vai renderizar os produtos aqui --}}
+                        <div id="checkout-items" class="mb-4">
+                            <div class="text-center text-secondary my-4">Cargando productos...</div>
+                        </div>
 
-.btn-primary:hover {
-    background-color: #2a0f6a; /* Tono más oscuro para el estado hover */
-    box-shadow: 0 0 15px rgba(59, 22, 145, 0.5); /* Resplandor neon */
-}
+                        <div class="border-top border-secondary pt-3 mb-3">
+                            <div class="d-flex justify-content-between mb-2 small text-secondary">
+                                <span>Subtotal</span>
+                                <span id="checkout-subtotal">$0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2 small text-secondary">
+                                <span>Costo de Envío</span>
+                                <span id="checkout-envio">$0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3 fs-4">
+                                <span class="fw-bold">Total</span>
+                                <span id="checkout-total" class="text-success fw-bold">$0</span>
+                            </div>
+                        </div>
 
-/* Ajusta el color del placeholder en los inputs oscuros (contacto.blade.php) */
-.form-control::placeholder {
-    color: #9f9f9f;
-    opacity: 1;
-}
+                        <button type="submit" class="btn btn-primary w-100 py-3 fw-bold fs-5 mt-2 rounded-3">
+                            Pagar Ahora
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-.form-control:focus::placeholder{
-    color: rgba(255,255,255,0.3); /* Atenúa el texto cuando el usuario hace clic */
-}
+        </div>
+    </form>
+</div>
 
-/* --------------------------------------------------------------------------
-   4. TARJETAS DE PRODUCTO (Catálogo)
-   Se usan en: components/producto-card.blade.php
-   -------------------------------------------------------------------------- */
-.card {
-    background-color: #1a232e !important;
-    border: 1px solid #2d3748 !important;
-    color: #ffffff !important;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-    overflow: hidden;
-    height: 100%; /* Asegura que todas las tarjetas midan lo mismo */
-}
+{{-- SCRIPT PARA LER O CARRINHO E CALCULAR TOTAIS --}}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const carrito = JSON.parse(localStorage.getItem('gaming_station_cart')) || [];
+        const contenedorItems = document.getElementById('checkout-items');
+        const subtotalEl = document.getElementById('checkout-subtotal');
+        const envioEl = document.getElementById('checkout-envio');
+        const totalEl = document.getElementById('checkout-total');
+        const radiosEnvio = document.querySelectorAll('input[name="envio"]');
 
-.card:hover {
-    transform: translateY(-8px); /* Efecto de elevación al hacer hover */
-}
+        let subtotal = 0;
+        let costoEnvio = 0;
 
-/* Hack CSS para forzar que el contenedor de la imagen sea un cuadrado perfecto 1:1 */
-.contenedor-img {
-    width: 100%;
-    height: 0;
-    padding-bottom: 100%; 
-    position: relative;
-    overflow: hidden;
-}
+        if (carrito.length === 0) {
+            contenedorItems.innerHTML = '<p class="text-danger text-center">Tu carrito está vacío.</p>';
+        } else {
+            contenedorItems.innerHTML = carrito.map(item => {
+                const totalItem = item.precio * item.cantidad;
+                subtotal += totalItem;
+                return `
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-white p-1 rounded me-3" style="width: 50px; height: 50px;">
+                            <img src="${item.imagen}" class="w-100 h-100 object-fit-contain">
+                        </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0 text-white small">${item.nombre}</h6>
+                            <small class="text-secondary">Cant: ${item.cantidad}</small>
+                        </div>
+                        <div class="text-success fw-bold small">
+                            $${totalItem.toLocaleString('es-AR')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
 
-/* Recorta la imagen para que llene el cuadrado sin deformarse */
-.contenedor-img img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    object-position: center;
-}
+        const actualizarTotales = () => {
+            const total = subtotal + costoEnvio;
+            subtotalEl.innerText = '$' + subtotal.toLocaleString('es-AR');
+            envioEl.innerText = costoEnvio > 0 ? '+$' + costoEnvio.toLocaleString('es-AR') : 'Gratis';
+            totalEl.innerText = '$' + total.toLocaleString('es-AR');
+        };
 
-/* Etiqueta de precio destacada en el catálogo */
-.precio-catalogo {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #4ade80; /* Verde neón */
-    letter-spacing: 0.5px;
-    background: rgba(74, 222, 128, 0.1);
-    padding: 5px 10px;
-    border-radius: 8px;
-    display: inline-block;
-    text-align: center;
-}
+        radiosEnvio.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                costoEnvio = parseInt(e.target.value);
+                actualizarTotales();
+            });
+        });
 
-/* --------------------------------------------------------------------------
-   5. VISTA DE DETALLE DEL PRODUCTO
-   Se usan en: vistas/consultas.blade.php
-   -------------------------------------------------------------------------- */
-/* Contenedor principal de la página de detalle */
-.detalle-wrapper {
-    background-color: #111827; 
-    border: 1px solid #1f2937; 
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-/* Sección izquierda: Fondo radial que simula luz sobre el producto */
-.detalle-img-container {
-    background: radial-gradient(circle at center, #1f2937 0%, #111827 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem;
-    height: 100%;
-    min-height: 450px;
-}
-
-.detalle-img-container img {
-    max-width: 100%;
-    max-height: 400px;
-    object-fit: contain; /* Evita que la imagen original se corte */
-    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.6)); /* Sombra 3D a la silueta */
-    transition: transform 0.4s ease;
-}
-
-.detalle-img-container:hover img {
-    transform: scale(1.05);
-}
-
-/* Sección derecha: Contenedor de la información */
-.detalle-info-container {
-    padding: 4rem 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #151c24;
-    height: 100%;
-}
-
-.detalle-precio {
-    font-size: 3rem;
-    font-weight: 900;
-    color: #4ade80;
-    letter-spacing: -1px;
-}
-
-/* Lista de viñetas personalizadas para las especificaciones */
-.detalle-specs {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.detalle-specs li {
-    position: relative;
-    padding-left: 2rem;
-    margin-bottom: 1rem;
-    color: #9ca3af;
-    font-size: 1.05rem;
-}
-
-/* Inyecta un tilde (✓) morado antes de cada item de la lista */
-.detalle-specs li::before {
-    content: "✓"; 
-    position: absolute;
-    left: 0;
-    color: #3b1691;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-/* Input numérico personalizado para seleccionar cantidad */
-.input-cantidad-moderno {
-    background-color: #0b1218;
-    border: 1px solid #374151;
-    color: #ffffff;
-    text-align: center;
-    border-radius: 10px;
-    height: 55px;
-    font-size: 1.2rem;
-    width: 80px;
-    transition: border-color 0.3s ease;
-}
-
-.input-cantidad-moderno:focus {
-    border-color: #4ade80;
-    outline: none;
-}
-
-/* --------------------------------------------------------------------------
-   6. CARRITO LATERAL (OFFCANVAS)
-   Se usan en: components/carrito.blade.php
-   -------------------------------------------------------------------------- */
-/* Redefine el panel lateral de Bootstrap */
-.offcanvas-minimalist {
-    background-color: #0f172a !important;
-    color: #f8fafc;
-    border-left: 1px solid #1e293b !important;
-    width: 400px !important;
-}
-
-/* Personaliza la barra de desplazamiento (Scrollbar) dentro del carrito */
-#contenedor-items-carrito::-webkit-scrollbar {
-    width: 5px;
-}
-#contenedor-items-carrito::-webkit-scrollbar-track {
-    background: #0f172a;
-}
-#contenedor-items-carrito::-webkit-scrollbar-thumb {
-    background: #334155;
-    border-radius: 10px;
-}
-
-/* Tarjeta individual de producto agregado al carrito */
-.cart-item-modern {
-    background-color: #1e293b;
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    border: 1px solid transparent;
-}
-
-.cart-item-modern:hover {
-    background-color: #334155;
-    transform: translateX(-5px); /* Desplazamiento sutil a la izquierda */
-    border-color: #475569;
-}
-
-/* Contenedor miniatura de la imagen en el carrito */
-.cart-item-img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    background: white; /* Único fondo blanco permitido para legibilidad */
-    border-radius: 8px;
-    padding: 5px;
-}
-
-/* Footer del carrito (Área de Total y Pagar) */
-.cart-footer-modern {
-    background-color: #0f172a;
-    padding: 2rem 1.5rem;
-    border-top: 1px solid #1e293b;
-}
-
-.cart-total-amount {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #4ade80;
-}
+        actualizarTotales();
+    });
+</script>
+@endsection

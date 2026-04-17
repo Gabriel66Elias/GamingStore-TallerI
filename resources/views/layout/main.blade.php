@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamingStation | @yield('titulo')</title>
     
-    {{-- Bootstrap 5.3 (Local) --}}
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     
-    {{-- Bootstrap Icons CDN --}}
+    {{-- implementamos Bootstrap Icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    {{-- Estilos personalizados --}}
+        
+    {{-- nuestros estilos --}}
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 </head>
 
@@ -22,7 +21,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary py-3 sticky-top">
         <div class="container">
             
-            {{-- 1. IZQUIERDA: Marca --}}
+            {{-- Nombre de la Pagina --}}
             <a class="navbar-brand fw-bold fs-4" href="/">GAMING<span class="text-primary">STATION</span></a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -31,7 +30,7 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 
-                {{-- 2. CENTRO: Navegación Principal --}}
+                {{-- Navegación Principal --}}
                 <div class="navbar-nav mx-auto align-items-center">
                     <a class="nav-link px-3 {{ Request::is('/') ? 'active text-primary' : '' }}" href="/">Inicio</a>
                     <a class="nav-link px-3 {{ Request::is('quienes-somos') ? 'active text-primary' : '' }}" href="/quienes-somos">Quiénes Somos</a>
@@ -39,10 +38,10 @@
                     <a class="nav-link px-3 {{ Request::is('contacto') ? 'active text-primary' : '' }}" href="/contacto">Contacto</a>
                 </div>
                 
-                {{-- 3. DERECHA: Buscador y Carrito --}}
+                {{-- Buscador y Carrito --}}
                 <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
                     
-                    {{-- Buscador minimalista --}}
+                    {{-- estilos del buscador --}}
                     <form class="d-flex" role="search" action="/catalogo" method="GET">
                         <div class="input-group">
                             <input class="form-control bg-dark text-light border-secondary" type="search" placeholder="Buscar..." name="q" aria-label="Buscar">
@@ -52,7 +51,7 @@
                         </div>
                     </form>
 
-                    {{-- Botón de Carrito con Contador (Badge) --}}
+                    {{-- Botón de Carrito con Contador --}}
                     <a class="btn btn-primary d-flex align-items-center btn-cart-container position-relative" 
                        href="#carritoLateral" 
                        role="button" 
@@ -68,7 +67,7 @@
         </div>
     </nav>
 
-    {{-- CONTENIDO DINÁMICO --}}
+   
     <main>
         @yield('contenido')
     </main>
@@ -86,13 +85,13 @@
         </div>
     </footer>
 
-    {{-- COMPONENTE DEL CARRITO (OFFCANVAS) --}}
+    {{-- COMPONENTE DEL CARRITO --}}
     <x-carrito />
 
     {{-- SCRIPTS BASE --}}
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    {{-- LÓGICA DEL CARRITO (MOTOR DEL E-COMMERCE) --}}
+    {{-- LÓGICA DEL CARRITO --}}
     <script>
         // Inicialización desde LocalStorage
         let carrito = JSON.parse(localStorage.getItem('gaming_station_cart')) || [];
@@ -118,7 +117,7 @@
             
             guardarYRenderizar();
 
-            // Abrir el panel lateral automáticamente
+            // funacion para abrir el panel lateral automáticamente
             const cartEl = document.getElementById('carritoLateral');
             const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(cartEl);
             bsOffcanvas.show();
@@ -135,7 +134,7 @@
 
             if (nuevaCantidad > item.stock) {
                 alert(`No puedes superar el stock disponible (${item.stock} unidades).`);
-                renderizarCarrito(); // Revertir visualmente al valor anterior
+                renderizarCarrito(); 
                 return;
             }
 
@@ -164,9 +163,6 @@
             renderizarCarrito();
         }
 
-        /**
-         * Renderiza los items en el Offcanvas y actualiza el Badge del Navbar
-         */
         function renderizarCarrito() {
             const contenedor = document.getElementById('contenedor-items-carrito');
             const totalTxt = document.getElementById('total-carrito');
@@ -174,7 +170,7 @@
             
             if (!contenedor) return;
             
-            // Actualizar Contador en el Header (Badge)
+            // Actualizar Contador en el Header 
             const totalProductos = carrito.reduce((sum, item) => sum + item.cantidad, 0);
             if (totalProductos > 0) {
                 badge.innerText = totalProductos;
@@ -194,7 +190,6 @@
                 return;
             }
 
-            // Renderizado de items con el nuevo estilo minimalista
             let totalGeneral = 0;
             contenedor.innerHTML = carrito.map(item => {
         totalGeneral += item.precio * item.cantidad;
