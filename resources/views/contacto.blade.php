@@ -29,7 +29,7 @@
                             </ul>
                             <hr class="border-secondary">
                             <h4 class="h4 mt-4">Nuestras Redes</h4>
-                            <p class="text-secondary">Seguinos para enterarte de los últimos ingresos de consolas y
+                            <p class="text-white">Seguinos para enterarte de los últimos ingresos de consolas y
                                 periféricos.
                             </p>
                         </div>
@@ -41,7 +41,7 @@
                         <div class="card-body">
                             <h3 class="h3 mb-4">Envianos tu consulta</h3>
                             <form action="{{ url('/contacto') }}" method="POST">
-                                @csrf {{-- ¡No olvides el token de seguridad de Laravel! --}}
+                                @csrf  <!--TOKEN DE SEGURIDAD DE LARAVEL-->
                                 <div class="mb-3 text-start">
                                     <label class="form-label">Nombre Completo</label>
                                     <input type="text" name="nombre"

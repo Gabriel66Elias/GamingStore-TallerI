@@ -52,38 +52,38 @@
             <div class="row g-4">
                 <div class="col-12 col-md-4">
                     <div class="card shadow h-100">
-                        <div class="contenedor-img">
-                            <img src="/img/juan-perez.webp" class="img-fluid" alt="Equipo 1">
-                        </div>
-                        <div class="card-body">
+                        <div class="card-body text-center">
+                            <div class="contenedor-img mb-3">
+                                <img src="/img/juan-perez.webp" alt="Fundador y CEO de GamingStation"
+                                    class="img-fluid square">
+                            </div>
                             <h5 class="card-title fw-bold">Juan Pérez</h5>
-                            <p class="card-text text-secondary mb-4">Fundador y CEO de GamingStation,
-                                con más de 15 años de experiencia
+                            <p class="card-text text-secondary">Fundador y CEO de GamingStation. Con más de 15 años de experiencia
                                 en la industria de los videojuegos.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="card shadow h-100">
-                        <div class="contenedor  -img">
-                            <img src="/img/maria-garcia.webp" class="img-fluid" alt="Equipo 2">
-                        </div>
-                        <div class="card-body">
+                        <div class="card-body text-center">
+                            <div class="contenedor-img mb-3">
+                                <img src="/img/maria-garcia.webp" alt="Directora de Marketing" class="img-fluid square">
+                            </div>
                             <h5 class="card-title fw-bold">María García</h5>
-                            <p class="card-text text-secondary mb-4">Directora de Marketing, responsable de las estrategias
-                                de promoción y comunicación de la marca.</p>
+                            <p class="card-text text-secondary">Directora de Marketing. Apasionada por las estrategias digitales y la conexión con
+                                la comunidad gamer.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="card shadow h-100">
-                        <div class="contenedor-img">
-                            <img src="/img/carlos-lopez.webp" class="img-fluid" alt="Equipo 3">
-                        </div>
-                        <div class="card-body">
+                        <div class="card-body text-center">
+                            <div class="contenedor-img mb-3">
+                                <img src="/img/carlos-lopez.webp" alt="Jefe de Ventas" class="img-fluid square" style="border: 4px solid #110039">
+                            </div>
                             <h5 class="card-title fw-bold">Carlos López</h5>
-                            <p class="card-text text-secondary mb-4">Jefe de Ventas,
-                                encargado de garantizar la mejor experiencia de compra para nuestros clientes.</p>
+                            <p class="card-text text-secondary">Jefe de Ventas, con una amplia experiencia en atención al
+                                cliente y un profundo conocimiento de los productos que ofrecemos.</p>
                         </div>
                     </div>
                 </div>

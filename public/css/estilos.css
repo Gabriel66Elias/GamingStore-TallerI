@@ -44,7 +44,7 @@ h1, h2, h3 {
 
 /* Contenedor relativo para posicionar el número del carrito encima del botón */
 .btn-cart-container {
-    position: relative; 
+    position: relative;
 }
 
 /* El círculo rojo con el número de items en el carrito */
@@ -52,7 +52,7 @@ h1, h2, h3 {
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color: #ef4444; 
+    background-color: #ef4444;
     color: white;
     font-size: 0.7rem;
     font-weight: bold;
@@ -113,15 +113,15 @@ h1, h2, h3 {
     transform: translateY(-8px); /* Efecto de elevación al hacer hover */
 }
 
+
 /* Hack CSS para forzar que el contenedor de la imagen sea un cuadrado perfecto 1:1 */
 .contenedor-img {
     width: 100%;
     height: 0;
-    padding-bottom: 100%; 
+    padding-bottom: 100%;
     position: relative;
     overflow: hidden;
 }
-
 /* Recorta la imagen para que llene el cuadrado sin deformarse */
 .contenedor-img img {
     position: absolute;
@@ -129,7 +129,7 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     object-position: center;
 }
 
@@ -152,8 +152,8 @@ h1, h2, h3 {
    -------------------------------------------------------------------------- */
 /* Contenedor principal de la página de detalle */
 .detalle-wrapper {
-    background-color: #111827; 
-    border: 1px solid #1f2937; 
+    background-color: #111827;
+    border: 1px solid #1f2937;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -216,7 +216,7 @@ h1, h2, h3 {
 
 /* Inyecta un tilde (✓) morado antes de cada item de la lista */
 .detalle-specs li::before {
-    content: "✓"; 
+    content: "✓";
     position: absolute;
     left: 0;
     color: #3b1691;

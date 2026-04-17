@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamingStation | @yield('titulo')</title>
-    
+
     {{-- Bootstrap 5.3 (Local) --}}
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-    
+
     {{-- Bootstrap Icons CDN --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+
     {{-- Estilos personalizados --}}
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 </head>
@@ -21,27 +21,28 @@
     {{-- NAVBAR MODERNA DE TRES COLUMNAS --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary py-3 sticky-top">
         <div class="container">
-            
+
             {{-- 1. IZQUIERDA: Marca --}}
             <a class="navbar-brand fw-bold fs-4" href="/">GAMING<span class="text-primary">STATION</span></a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                
+
                 {{-- 2. CENTRO: Navegación Principal --}}
                 <div class="navbar-nav mx-auto align-items-center">
                     <a class="nav-link px-3 {{ Request::is('/') ? 'active text-primary' : '' }}" href="/">Inicio</a>
                     <a class="nav-link px-3 {{ Request::is('quienes-somos') ? 'active text-primary' : '' }}" href="/quienes-somos">Quiénes Somos</a>
                     <a class="nav-link px-3 {{ Request::is('catalogo') ? 'active text-primary' : '' }}" href="/catalogo">Catálogo</a>
                     <a class="nav-link px-3 {{ Request::is('contacto') ? 'active text-primary' : '' }}" href="/contacto">Contacto</a>
+                    <a class="nav-link px-3 {{ Request::is('terminos') ? 'active text-primary' : '' }}" href="/terminos">Términos</a>
                 </div>
-                
+
                 {{-- 3. DERECHA: Buscador y Carrito --}}
                 <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
-                    
+
                     {{-- Buscador minimalista --}}
                     <form class="d-flex" role="search" action="/catalogo" method="GET">
                         <div class="input-group">
@@ -53,10 +54,10 @@
                     </form>
 
                     {{-- Botón de Carrito con Contador (Badge) --}}
-                    <a class="btn btn-primary d-flex align-items-center btn-cart-container position-relative" 
-                       href="#carritoLateral" 
-                       role="button" 
-                       data-bs-toggle="offcanvas" 
+                    <a class="btn btn-primary d-flex align-items-center btn-cart-container position-relative"
+                       href="#carritoLateral"
+                       role="button"
+                       data-bs-toggle="offcanvas"
                        aria-controls="carritoLateral">
                         <i class="bi bi-cart3 me-2 fs-5"></i>
                         <span class="d-none d-xl-inline">Carrito</span>
@@ -103,7 +104,7 @@
         function agregarAlCarrito(id, nombre, precio, stock, imagen) {
             const inputCant = document.getElementById('input-cantidad');
             const cantidadSeleccionada = inputCant ? parseInt(inputCant.value) : 1;
-            
+
             const itemExistente = carrito.find(item => item.id === id);
 
             if (itemExistente) {
@@ -115,7 +116,7 @@
             } else {
                 carrito.push({ id, nombre, precio, stock, imagen, cantidad: cantidadSeleccionada });
             }
-            
+
             guardarYRenderizar();
 
             // Abrir el panel lateral automáticamente
@@ -171,9 +172,9 @@
             const contenedor = document.getElementById('contenedor-items-carrito');
             const totalTxt = document.getElementById('total-carrito');
             const badge = document.getElementById('cart-count-badge');
-            
+
             if (!contenedor) return;
-            
+
             // Actualizar Contador en el Header (Badge)
             const totalProductos = carrito.reduce((sum, item) => sum + item.cantidad, 0);
             if (totalProductos > 0) {
@@ -201,7 +202,7 @@
         return `
             <div class="cart-item-modern d-flex gap-3 align-items-center shadow-sm">
                 <img src="${item.imagen}" class="cart-item-img border border-secondary border-opacity-25" alt="${item.nombre}">
-                
+
                 <div class="grow"> <div class="d-flex justify-content-between align-items-start">
                         <span class="fw-bold text-white small">${item.nombre}</span>
                         <button class="btn btn-sm p-0 text-secondary hover-danger" onclick="eliminarItem('${item.id}')">
@@ -209,21 +210,21 @@
                         </button>
                     </div>
                     <div class="text-success fw-bold my-1">$${(item.precio * item.cantidad).toLocaleString('es-AR')}</div>
-                    
+
                     <div class="d-flex align-items-center gap-2 mt-2">
                         <label class="small text-secondary">Cant:</label>
-                        <input type="number" 
-                               class="form-control form-control-sm bg-dark text-white border-secondary text-center" 
-                               style="width: 65px; height: 30px; font-size: 0.85rem;" 
-                               value="${item.cantidad}" 
-                               min="1" 
+                        <input type="number"
+                               class="form-control form-control-sm bg-dark text-white border-secondary text-center"
+                               style="width: 65px; height: 30px; font-size: 0.85rem;"
+                               value="${item.cantidad}"
+                               min="1"
                                max="${item.stock}"
                                onchange="actualizarCantidad('${item.id}', this.value)">
                     </div>
                 </div>
             </div>`;
             }).join('');
-                    
+
             totalTxt.innerText = '$' + totalGeneral.toLocaleString('es-AR');
         }
 
