@@ -3,14 +3,14 @@
 @section('titulo', 'Finalizar Compra')
 
 @section('contenido')
-{{-- BLOCO DE ESTILOS LOCAL PARA CORRIGIR O BUG DOS CARTÕES --}}
+
 <style>
     .card-checkout {
-        height: auto !important; /* Impede que o cartão estique infinitamente */
+        height: auto !important; 
     }
     .card-checkout:hover {
-        transform: none !important; /* Anula o salto ao passar o rato */
-        border-color: #2d3748 !important; /* Mantém a cor da borda estática */
+        transform: none !important; 
+        border-color: #2d3748 !important; 
     }
 </style>
 
@@ -21,10 +21,9 @@
         @csrf
         <div class="row g-4">
             
-            {{-- COLUNA ESQUERDA: Formulários de Dados --}}
             <div class="col-lg-8">
                 
-                {{-- 1. Dados Pessoais e de Envio --}}
+                {{-- 1. Datos para envio --}}
                 <div class="card card-checkout bg-dark border-secondary mb-4 shadow-sm">
                     <div class="card-header border-secondary bg-black py-3">
                         <h5 class="mb-0 fw-bold text-white"><i class="bi bi-person-lines-fill me-2"></i>1. Datos de Facturación y Entrega</h5>
@@ -90,7 +89,7 @@
                     </div>
                 </div>
 
-                {{-- 2. Método de Envio --}}
+                {{-- 2. Metodo de Envio --}}
                 <div class="card card-checkout bg-dark border-secondary mb-4 shadow-sm">
                     <div class="card-header border-secondary bg-black py-3">
                         <h5 class="mb-0 fw-bold text-white"><i class="bi bi-box-seam me-2"></i>2. Método de Envío</h5>
@@ -99,7 +98,7 @@
                         <div class="form-check border border-secondary rounded p-3 mb-3 d-flex align-items-center">
                             <input class="form-check-input ms-1 me-3" type="radio" name="envio" id="envioCorreo" value="8500" required>
                             <label class="form-check-label w-100 d-flex justify-content-between align-items-center cursor-pointer" for="envioCorreo">
-                                <span><strong>Correo Argentino (Paq.ar)</strong><br><small class="text-secondary">Envío a domicilio (3 a 5 días hábiles)</small></span>
+                                <span><strong>Correo Argentino</strong><br><small class="text-secondary">Envío a domicilio (3 a 5 días hábiles)</small></span>
                                 <span class="text-success fw-bold">+$8.500</span>
                             </label>
                         </div>
@@ -113,7 +112,7 @@
                     </div>
                 </div>
 
-                {{-- 3. Método de Pagamento --}}
+                {{-- 3. metodo de pago --}}
                 <div class="card card-checkout bg-dark border-secondary shadow-sm">
                     <div class="card-header border-secondary bg-black py-3">
                         <h5 class="mb-0 fw-bold text-white"><i class="bi bi-credit-card me-2"></i>3. Método de Pago</h5>
@@ -136,13 +135,12 @@
 
             </div>
 
-            {{-- COLUNA DIREITA: Resumo da Ordem --}}
+            {{-- resumen de orden --}}
             <div class="col-lg-4">
                 <div class="card card-checkout bg-black border-primary shadow-lg sticky-top" style="top: 100px;">
                     <div class="card-body p-4">
                         <h4 class="fw-bold mb-4 border-bottom border-secondary pb-2">Resumen de Orden</h4>
                         
-                        {{-- O JS vai renderizar os produtos aqui --}}
                         <div id="checkout-items" class="mb-4">
                             <div class="text-center text-secondary my-4">Cargando productos...</div>
                         </div>
@@ -173,7 +171,6 @@
     </form>
 </div>
 
-{{-- SCRIPT PARA LER O CARRINHO E CALCULAR TOTAIS --}}
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const carrito = JSON.parse(localStorage.getItem('gaming_station_cart')) || [];
