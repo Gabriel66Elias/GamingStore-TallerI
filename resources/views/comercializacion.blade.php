@@ -122,13 +122,13 @@
                         <div class="form-check border border-secondary rounded p-3 mb-3 d-flex align-items-center">
                             <input class="form-check-input ms-1 me-3" type="radio" name="pago" id="pagoMercadoPago" required>
                             <label class="form-check-label cursor-pointer" for="pagoMercadoPago">
-                                <strong>Mercado Pago</strong><br><small class="text-secondary">Tarjetas de crédito, débito o dinero en cuenta.</small>
+                                <strong>Mercado Pago</strong><br><small class="text-secondary"></small>
                             </label>
                         </div>
                         <div class="form-check border border-secondary rounded p-3 d-flex align-items-center">
                             <input class="form-check-input ms-1 me-3" type="radio" name="pago" id="pagoTransferencia" required>
                             <label class="form-check-label cursor-pointer" for="pagoTransferencia">
-                                <strong>Transferencia Bancaria</strong><br><small class="text-secondary">10% de descuento abonando por este medio.</small>
+                                <strong>Transferencia Bancaria</strong><br><small class="text-secondary"></small>
                             </label>
                         </div>
                     </div>

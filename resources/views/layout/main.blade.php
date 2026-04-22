@@ -19,7 +19,7 @@
 <body class="bg-dark text-light">
 
     {{-- NAVBAR MODERNA DE TRES COLUMNAS --}}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary py-3 sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary py-3 sticky-top" style="z-index: 1050;">
         <div class="container">
 
             {{-- 1. IZQUIERDA: Marca --}}
