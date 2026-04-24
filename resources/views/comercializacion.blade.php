@@ -26,7 +26,11 @@
                 {{-- 1. Datos para envio --}}
                 <div class="card card-checkout bg-dark border-secondary mb-4 shadow-sm">
                     <div class="card-header border-secondary bg-black py-3">
-                        <h5 class="mb-0 fw-bold text-white"><i class="bi bi-person-lines-fill me-2"></i>1. Datos de Facturación y Entrega</h5>
+                        <h5 class="mb-0 fw-bold text-white d-flex align-items-center">
+                            {{-- SVG PERSON LOCAL --}}
+                            <img src="{{ asset('assets/person-circle.svg') }}" alt="Datos" class="me-2" style="width: 24px; filter: invert(1);">
+                            1. Datos de Facturación y Entrega
+                        </h5>
                     </div>
                     <div class="card-body p-4">
                         <div class="row g-3">
@@ -92,7 +96,11 @@
                 {{-- 2. Metodo de Envio --}}
                 <div class="card card-checkout bg-dark border-secondary mb-4 shadow-sm">
                     <div class="card-header border-secondary bg-black py-3">
-                        <h5 class="mb-0 fw-bold text-white"><i class="bi bi-box-seam me-2"></i>2. Método de Envío</h5>
+                        <h5 class="mb-0 fw-bold text-white d-flex align-items-center">
+                            {{-- SVG BOXES LOCAL --}}
+                            <img src="{{ asset('assets/boxes.svg') }}" alt="Envío" class="me-2" style="width: 24px; filter: invert(1);">
+                            2. Método de Envío
+                        </h5>
                     </div>
                     <div class="card-body p-4">
                         <div class="form-check border border-secondary rounded p-3 mb-3 d-flex align-items-center">
@@ -115,7 +123,11 @@
                 {{-- 3. metodo de pago --}}
                 <div class="card card-checkout bg-dark border-secondary shadow-sm">
                     <div class="card-header border-secondary bg-black py-3">
-                        <h5 class="mb-0 fw-bold text-white"><i class="bi bi-credit-card me-2"></i>3. Método de Pago</h5>
+                        <h5 class="mb-0 fw-bold text-white d-flex align-items-center">
+                            {{-- SVG CREDIT CARD LOCAL --}}
+                            <img src="{{ asset('assets/credit-card.svg') }}" alt="Pago" class="me-2" style="width: 24px; filter: invert(1);">
+                            3. Método de Pago
+                        </h5>
                     </div>
                     <div class="card-body p-4">
                         <div class="form-check border border-secondary rounded p-3 mb-3 d-flex align-items-center">

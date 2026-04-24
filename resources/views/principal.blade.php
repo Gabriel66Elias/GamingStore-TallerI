@@ -51,10 +51,11 @@
                             Las mejores consolas, hardware de punta y lanzamientos físicos en un solo lugar.
                         </p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                            <a href="/catalogo" class="btn btn-primary btn-lg px-5 py-3 fw-bold rounded-pill shadow">
-                                <i class="bi bi-controller me-2"></i>Ver Catálogo
+                            <a href="/catalogo" class="btn btn-primary btn-lg px-5 py-3 fw-bold rounded-pill shadow d-inline-flex align-items-center gap-2">
+                                <img src="{{ asset('assets/controller.svg') }}" alt="controller" style="width: 24px; height: 24px; filter: invert(1);">
+                                <span>Ver Catálogo</span>
                             </a>
-                            <a href="/quienes-somos" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold rounded-pill">
+                            <a href="/quienes-somos" class="btn btn-light btn-lg px-5 py-3 fw-bold rounded-pill">
                                 Conócenos
                             </a>
                         </div>
@@ -72,7 +73,7 @@
                 <div class="card h-100 border-0 bg-dark text-light hover-elevate">
                     <div class="card-body p-4">
                         <div class="mb-4">
-                            <i class="bi bi-playstation text-primary" style="font-size: 3rem;"></i>
+                            <a href="#"><img src="{{ asset('assets/playstation.svg') }}" alt="playstation" style="width: 50px; height: 50; filter: invert(1); opacity: 1;"></a>
                         </div>
                         <h3 class="fw-bold mb-3">Consolas</h3>
                         <p class="text-secondary mb-0">PS5, Nintendo Switch y Xbox Series X disponibles con garantía oficial.</p>
@@ -84,7 +85,7 @@
                 <div class="card h-100 border-0 bg-dark text-light hover-elevate">
                     <div class="card-body p-4">
                         <div class="mb-4">
-                            <i class="bi bi-mouse3 text-primary" style="font-size: 3rem;"></i>
+                            <a href="#"><img src="{{ asset('assets/mouse3.svg') }}" alt="mouse" style="width: 50px; height: 50; filter: invert(1); opacity: 1;"></a>
                         </div>
                         <h3 class="fw-bold mb-3">Periféricos</h3>
                         <p class="text-secondary mb-0">Mandos, auriculares y volantes para una experiencia inmersiva total.</p>
@@ -96,7 +97,7 @@
                 <div class="card h-100 border-0 bg-dark text-light hover-elevate">
                     <div class="card-body p-4">
                         <div class="mb-4">
-                            <i class="bi bi-tv text-primary" style="font-size: 3rem;"></i>
+                            <a href="#"><img src="{{ asset('assets/tv.svg') }}" alt="tv" style="width: 50px; height: 50; filter: invert(1); opacity: 1;"></a>
                         </div>
                         <h3 class="fw-bold mb-3">Gaming TVs</h3>
                         <p class="text-secondary mb-0">Pantallas 4K con bajo input-lag para que no pierdas ni un solo frame.</p>
@@ -108,7 +109,7 @@
                 <div class="card h-100 border-0 bg-dark text-light hover-elevate">
                     <div class="card-body p-4">
                         <div class="mb-4">
-                            <i class="bi bi-cpu text-primary" style="font-size: 3rem;"></i>
+                            <a href="#"><img src="{{ asset('assets/cpu.svg') }}" alt="cpu" style="width: 50px; height: 50; filter: invert(1); opacity: 1;"></a>
                         </div>
                         <h3 class="fw-bold mb-3">Hardware</h3>
                         <p class="text-secondary mb-0">Los mejores componetes para tu PC.</p>
