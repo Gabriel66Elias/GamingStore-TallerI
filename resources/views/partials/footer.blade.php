@@ -1,9 +1,9 @@
 <footer class="text-center py-5 border-top border-secondary mt-5 bg-black">
     <div class="container">
         <p class="mb-2 fw-bold text-uppercase">GAMING<span class="text-primary">STATION</span></p>
-        
+
         <p class="text-secondary small">&copy; 2026 - Todos los derechos reservados</p>
-        
+
         <div class="d-flex justify-content-center gap-3 mt-3">
             <a href="#" title="Síguenos en Instagram">
                 <img src="{{ asset('assets/instagram.svg') }}" alt="Instagram" style="width: 24px; height: 24px; filter: invert(1); opacity: 0.6;">

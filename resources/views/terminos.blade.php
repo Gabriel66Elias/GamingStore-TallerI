@@ -1,65 +1,105 @@
-<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GamingStation | Catálogo</title>
-<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/estilos.css"">
+@extends('layout.main')
 
-</html>
+@section('titulo', 'Términos y Usos | GamingStation')
 
-<body>
-    @extends('layout.main')
-    @section('titulo', 'Términos y Condiciones')
-    @section('contenido')
-        <div class="container mt-5">
-            <h2 class="text-center mb-5 text-white">Términos y Condiciones</h2>
-           <div class="row g-10">
-                <div class="col-12 col>-md-6">
-                    <div class="card bg-dark text-white h-100">
-                        <div class="card-body">
-                            <h5 class="card-title" fw-bold>1. Introducción</h5>
-                            <p class="card-text text-white mb-4">Bienvenido a GamingStation.
-                                Al acceder a nuestro sitio web y realizar compras,
-                                aceptas cumplir con los siguientes términos y condiciones.
-                                Por favor, lee atentamente esta sección antes de utilizar nuestros servicios.</p>
-                            <h5 class="card-title" fw-bold>
-                                2. Uso del Sitio Web</h5>
-                            <p class="card-text text-white mb-4">Nuestro sitio web está destinado exclusivamente
-                                para personas mayores de 18 años. Al utilizar nuestro sitio, garantizas que tienes la
-                                edad requerida para realizar compras y que toda la información proporcionada es precisa y
-                                actualizada.</p>
-                            <h5 class="card-title" fw-bold>3. Propiedad Intelectual</h5>
-                            <p class="card-text text-white mb-4">Todo el contenido de nuestro sitio web,
-                                incluyendo textos, imágenes, logotipos y diseños, es propiedad de GamingStation o
-                                de sus licenciantes y está protegido por las leyes de propiedad intelectual.
-                                No se permite la reproducción, distribución o uso no autorizado de nuestro contenido
-                                sin nuestro consentimiento previo por escrito.</p>
-                            <h5 class="card-title" fw-bold>4. Compras y Pagos</h5>
-                            <p class="card-text text-white mb-4">Al realizar una compra en nuestro sitio web,
-                                aceptas proporcionar información precisa y completa sobre ti mismo y tu método de pago.
-                                Nos reservamos el derecho de cancelar cualquier pedido que consideremos fraudulento o que viole estos términos y condiciones.</p>
-                            <h5 class="card-title" fw-bold>5. Devoluciones y Reembolsos</h5>
-                            <p class="card-text text-white mb-4">Aceptamos devoluciones de productos defectuosos o
-                                incorrectos dentro de los 30 días posteriores a la compra.
-                                Para solicitar una devolución, por favor contáctanos a través de nuestro formulario de contacto o por correo electrónico.
-                                Los reembolsos se procesarán una vez que hayamos recibido el producto devuelto y verificado su estado.</p>
-                            <h5 class="card-title" fw-bold>6. Limitación de Responsabilidad</h5>
-                            <p class="card-text text-white mb-4">GamingStation no será responsable por daños directos,
-                                indirectos, incidentales o consecuentes que resulten del uso o
-                                la imposibilidad de usar nuestro sitio web o nuestros productos,
-                                incluso si hemos sido informados de la posibilidad de dichos daños.</p>
-                            <h5 class="card-title" fw-bold>7. Modificaciones a los Términos y Condiciones</h5>
-                            <p class="card-text text-white mb-4">Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento.
-                                Cualquier cambio será efectivo inmediatamente después de su publicación en nuestro sitio web.
-                                Te recomendamos revisar esta sección periódicamente para estar al tanto de cualquier actualización.</p>
-                            <h5 class="card-title" fw-bold>8. Ley Aplicable</h5>
-                            <p class="card-text text-white mb-4">Estos términos y condiciones se regirán e interpretarán de acuerdo con las leyes de la República Argentina.
-                                Cualquier disputa que surja en relación con estos términos y condiciones será sometida a la jurisdicción exclusiva de los tribunales competentes de la ciudad de Corrientes, Argentina.</p>
+@section('contenido')
+    <div class="container mt-5 mb-5">
+
+        <div class="row mb-5 text-center">
+            <div class="col-12">
+                <h1 class="text-white fw-bold display-5">TÉRMINOS Y USOS</h1>
+                <p class="text-secondary lead">Políticas claras para una experiencia de compra segura y transparente.</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="card card-contacto shadow-lg border-0">
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="termino-seccion mb-5">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="termino-numero">1</span>
+                                <h4 class="text-white fw-bold mb-0 ms-3">Introducción y Uso del Sitio</h4>
+                            </div>
+                            <p class="text-secondary lh-lg ms-md-5">
+                                Bienvenido a GamingStation. Al acceder a nuestro sitio web y realizar compras, aceptas
+                                cumplir con los siguientes términos. Nuestro sitio está destinado exclusivamente a mayores
+                                de 18 años. Al utilizarlo, garantizas que toda la información proporcionada para la
+                                facturación y envío es precisa y actual.
+                            </p>
                         </div>
+
+                        <div class="termino-seccion mb-5">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="termino-numero">2</span>
+                                <h4 class="text-white fw-bold mb-0 ms-3">Compras, Precios y Stock</h4>
+                            </div>
+                            <p class="text-secondary lh-lg ms-md-5">
+                                Nos esforzamos por mantener el inventario de consolas y hardware actualizado en tiempo real.
+                                Sin embargo, debido a la alta demanda, un producto agregado al carrito no garantiza su
+                                reserva hasta que el pago sea confirmado. Nos reservamos el derecho de cancelar pedidos en
+                                caso de errores de sistema o falta de stock, reintegrando el 100% del dinero de forma
+                                inmediata.
+                            </p>
+                        </div>
+
+                        <div class="termino-seccion mb-5">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="termino-numero">3</span>
+                                <h4 class="text-white fw-bold mb-0 ms-3">Formas de Entrega y Tiempos</h4>
+                            </div>
+                            <p class="text-secondary lh-lg ms-md-5">
+                                Realizamos envíos a todo el país. Los tiempos de entrega estimados son de 2 a 5 días hábiles
+                                dependiendo de tu ubicación. Todo el hardware delicado (monitores, placas de video,
+                                consolas) se despacha con embalaje de alta protección y seguro de traslado. Una vez
+                                despachado, recibirás por email tu número de seguimiento.
+                            </p>
+                        </div>
+
+                        <div class="termino-seccion mb-5">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="termino-numero">4</span>
+                                <h4 class="text-white fw-bold mb-0 ms-3">Garantías y Soporte Postventa</h4>
+                            </div>
+                            <p class="text-secondary lh-lg ms-md-5">
+                                Todos nuestros productos cuentan con garantía oficial del fabricante (mínimo 6 meses). Si un
+                                componente presenta fallas de fábrica, nuestro equipo de soporte técnico te guiará en el
+                                proceso de RMA (Autorización de Retorno de Mercancía). La garantía queda anulada si el
+                                hardware presenta daños físicos, quemaduras por sobretensión o modificaciones no autorizadas
+                                (overclocking extremo).
+                            </p>
+                        </div>
+
+                        <div class="termino-seccion mb-5">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="termino-numero">5</span>
+                                <h4 class="text-white fw-bold mb-0 ms-3">Política de Devoluciones (Arrepentimiento)</h4>
+                            </div>
+                            <p class="text-secondary lh-lg ms-md-5">
+                                Tienes 10 días corridos desde la recepción del pedido para solicitar la devolución por arrepentimiento de compra.
+                                El producto debe estar en las mismas condiciones en las que fue entregado: cajas selladas, manuales intactos y sin uso.
+                                <strong>Importante:</strong> Por cuestiones de derechos de autor, no se aceptan devoluciones por arrepentimiento de
+                                videojuegos físicos desprecintados.
+                                <em>Si el juego presenta una falla de lectura de fábrica, el cambio se gestionará a través de la garantía (Punto 4).</em>
+                            </p>
+                        </div>
+
+                        <div class="termino-seccion">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="termino-numero">6</span>
+                                <h4 class="text-white fw-bold mb-0 ms-3">Ley Aplicable</h4>
+                            </div>
+                            <p class="text-secondary lh-lg ms-md-5 mb-0">
+                                Estos términos se rigen por las leyes de la República Argentina. Cualquier disputa será
+                                sometida a la jurisdicción exclusiva de los tribunales competentes de la ciudad de
+                                Corrientes.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 @endsection
-</body>

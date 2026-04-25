@@ -44,7 +44,7 @@ h1, h2, h3 {
 
 /* Contenedor relativo para posicionar el número del carrito encima del botón */
 .btn-cart-container {
-    position: relative; 
+    position: relative;
 }
 
 /* El círculo rojo con el número de items en el carrito */
@@ -52,7 +52,7 @@ h1, h2, h3 {
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color: #ef4444; 
+    background-color: #ef4444;
     color: white;
     font-size: 0.7rem;
     font-weight: bold;
@@ -127,7 +127,7 @@ h1, h2, h3 {
 .contenedor-img {
     width: 100%;
     height: 0;
-    padding-bottom: 100%; 
+    padding-bottom: 100%;
     position: relative;
     overflow: hidden;
 }
@@ -139,7 +139,7 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     object-position: center;
 }
 
@@ -162,8 +162,8 @@ h1, h2, h3 {
    -------------------------------------------------------------------------- */
 /* Contenedor principal de la página de detalle */
 .detalle-wrapper {
-    background-color: #111827; 
-    border: 1px solid #1f2937; 
+    background-color: #111827;
+    border: 1px solid #1f2937;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -226,7 +226,7 @@ h1, h2, h3 {
 
 /* Inyecta un tilde (✓) morado antes de cada item de la lista */
 .detalle-specs li::before {
-    content: "✓"; 
+    content: "✓";
     position: absolute;
     left: 0;
     color: #3b1691;
@@ -321,4 +321,200 @@ h1, h2, h3 {
 .hover-elevate:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.5) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. SECCIÓN QUIÉNES SOMOS (Diseño Estático y Corporativo)
+   Se usan en: quienes-somos.blade.php
+   -------------------------------------------------------------------------- */
+
+/* Tarjetas fijas para la historia y compromiso */
+.card-nosotros {
+    background-color: #1a232e !important;
+    border: 1px solid #2d3748 !important;
+    border-radius: 12px;
+}
+
+/* Mejora la legibilidad separando un poco más las líneas de texto */
+.lh-lg {
+    line-height: 1.8 !important;
+}
+
+/* Tarjetas fijas para el staff */
+.card-equipo {
+    /* Degradado sutil de azul oscuro a casi negro, da volumen */
+    background: linear-gradient(145deg, #1a232e 0%, #111827 100%) !important;
+    border: 1px solid rgba(59, 22, 145, 0.3) !important; /* Borde morado semi-transparente */
+    border-radius: 16px; /* Bordes un poco más suaves y modernos */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra suave para dar profundidad */
+    transition: all 0.3s ease; /* Prepara la tarjeta para el hover */
+}
+
+/* Hover ultra seguro: solo ilumina el borde y levanta un milímetro, cero riesgo de buguear la vista */
+.card-equipo:hover {
+    border-color: #3b1691 !important;
+    box-shadow: 0 15px 40px rgba(59, 22, 145, 0.25);
+    transform: translateY(-5px);
+}
+
+/* Aprovechamos la clase contenedor-img que ya tenías y le damos un toque de marca */
+.card-equipo .contenedor-img {
+    background-color: transparent;
+    padding: 30px 0 15px 0; /* Espaciado arriba y abajo */
+    height: auto;           /* Anula el height: 0 del catálogo */
+    padding-bottom: 0;      /* Anula el padding-bottom: 100% del catálogo */
+    overflow: visible;      /* Evita que se recorte la foto */
+    border-bottom: none;
+    display: flex;          /* Usamos flexbox para centrar fácil */
+    justify-content: center;
+}
+
+/* Transformamos las fotos cuadradas en Avatares circulares estilo perfil gamer */
+.card-equipo .contenedor-img img {
+    position: static;       /* Anula el position: absolute del catálogo */
+    border-radius: 50%;
+    width: 140px;           /* Tamaño fijo del avatar */
+    height: 140px;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border: 3px solid #3b1691;
+    margin: 0;
+}
+
+/* Destaca el puesto de trabajo con tu color de marca */
+.rol-destacado {
+    color: #4ade80; /* Usamos el verde neón de tus precios para hacer contraste */
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    background: rgba(74, 222, 128, 0.1); /* Fondo verde muy transparente */
+    padding: 6px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+/* Tamaño de fuente ligeramente menor para las biografías */
+.text-sm {
+    font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. PANTALLA DE ÉXITO (Diseño Premium)
+   Se usan en: exito.blade.php
+   -------------------------------------------------------------------------- */
+
+.card-exito {
+    background-color: #1a232e !important;
+    border: 1px solid rgba(74, 222, 128, 0.2) !important; /* Borde verde neón sutil */
+    border-radius: 24px;
+}
+
+/* El círculo del checkmark */
+.success-circle {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(74, 222, 128, 0.1);
+    border: 4px solid #4ade80;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* El tilde/check */
+.checkmark {
+    color: #4ade80;
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Refuerzo para el botón en esta pantalla */
+.card-exito .btn-primary {
+    background-color: #3b1691;
+    border-radius: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. SECCIÓN CONTACTO Y FORMULARIOS
+   Se usan en: contacto.blade.php
+   -------------------------------------------------------------------------- */
+
+.card-contacto {
+    background: linear-gradient(145deg, #1a232e 0%, #111827 100%) !important;
+    border: 1px solid rgba(59, 22, 145, 0.3) !important;
+    border-radius: 16px;
+}
+
+/* Estilo premium para los campos del formulario */
+.input-dark {
+    background-color: #0b1218 !important; /* Fondo ultra oscuro */
+    border: 1px solid #2d3748 !important; /* Borde sutil */
+    color: #ffffff !important;
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto Neón cuando el usuario hace clic en el input */
+.input-dark:focus {
+    border-color: #3b1691 !important; /* Borde morado de tu marca */
+    box-shadow: 0 0 0 0.25rem rgba(59, 22, 145, 0.25) !important;
+    outline: none;
+}
+
+.input-dark::placeholder {
+    color: #4b5563 !important; /* Un gris oscuro para que no moleste */
+}
+/* Estilos para los iconos de Redes Sociales en Contacto */
+.icono-red {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* Si tus SVG por defecto son negros y no se ven en el fondo oscuro,
+       descomentá la línea de abajo para invertirlos a blanco: */
+    /* filter: invert(1); */
+}
+
+.social-link:hover .icono-red {
+    transform: translateY(-5px); /* Hace que el icono salte hacia arriba */
+    filter: drop-shadow(0px 5px 10px rgba(59, 22, 145, 0.6)); /* Sombra morada */
+}
+
+/* --------------------------------------------------------------------------
+   10. SECCIÓN TÉRMINOS Y CONDICIONES
+   Se usan en: terminos.blade.php
+   -------------------------------------------------------------------------- */
+
+/* Estilo para los números de sección (Círculo morado con texto blanco) */
+.termino-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #3b1691;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(59, 22, 145, 0.4);
+    flex-shrink: 0; /* Evita que el círculo se aplaste en pantallas chicas */
+}
+
+/* Efecto hover suave sobre cada bloque de texto */
+.termino-seccion {
+    padding: 15px;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.termino-seccion:hover {
+    background-color: rgba(255, 255, 255, 0.02); /* Un brillo muy leve al leer */
 }
