@@ -35,3 +35,7 @@ Route::get('/catalogo', [ProductoController::class, 'index']);
 
 // Ruta para ver el detalle de un producto (apunta al método 'show')
 Route::get('/consulta/{id}', [ProductoController::class, 'show']);
+
+Route::get('/confirmacion-pedido', function () {
+    return view('confirmacionpedido');
+});
