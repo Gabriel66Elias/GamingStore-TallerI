@@ -44,7 +44,7 @@
         <a href="https://github.com/Gabriel66Elias" style="text-decoration:none;">
           <img src="https://github.com/Gabriel66Elias.png" width="160" style="border-radius:50%;" alt="Gabriel"/><br />
           <br />
-          <b><font color="#0d6efd" size="5">Fernandez Gabriel Elías/font></b>
+          <b><font color="#0d6efd" size="5">Fernandez Gabriel Elías </font></b>
         </a>
       </td>
     </tr>
