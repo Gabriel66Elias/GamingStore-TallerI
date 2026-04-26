@@ -53,7 +53,7 @@
             </div>
 
             <div class="carousel-inner h-100">
-                <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to bottom, rgba(17, 19, 26, 0.3) 0%, #0b0c10 100%); z-index: 1;"></div>
+                <div class="position-absolute top-0 inset-s-0 w-100 h-100" style="background: linear-gradient(to bottom, rgba(17, 19, 26, 0.3) 0%, #0b0c10 100%); z-index: 1;"></div>
 
                 <div class="carousel-item active h-100">
                     <img src="/img/carrusel1.webp" class="d-block w-100 h-100 object-fit-cover" alt="Setup Gaming 1">
