@@ -4,11 +4,12 @@
 
 @section('contenido')
 
-    {{-- BLOQUE DE ESTILOS CSS PERSONALIZADOS PARA ESTA VISTA --}}
     <style>
-        /* Evita que las tarjetas principales hagan el efecto de salto genérico */
         .card-checkout {
             height: auto !important;
+            background-color: #11131A !important;
+            border: 1px solid #1f222e !important;
+            border-radius: 1rem;
         }
 
         .card-checkout:hover {
@@ -16,327 +17,309 @@
             border-color: #2d3748 !important;
         }
 
-        /* Clase utilitaria para ocultar secciones dinámicamente con JavaScript */
-        .seccion-oculta {
-            display: none;
-        }
+        .seccion-oculta { display: none; }
 
-        /* ESTILOS DE LOS BOTONES DE SELECCIÓN (Tarjetas clickeables) */
         .btn-check-label {
-            transition: all 0.3s ease;
-            /* Transición suave para todos los efectos */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            /* Cambia el cursor a la "manito" */
-            border: 2px solid #3f3f46;
-            /* Borde gris oscuro en estado inactivo */
-            background-color: #18181b;
-            /* Fondo oscuro base del botón */
-            border-radius: 0.5rem;
-            /* Bordes redondeados modernos */
+            border: 2px solid #1f222e;
+            background-color: #1a1d27; 
+            border-radius: 0.8rem;
         }
 
-        /* ESTADO HOVER: Arreglado. Ahora da un brillo violeta sutil en lugar de un gris oscuro */
         .btn-check-label:hover {
-            border-color: #8b5cf6;
-            /* Borde violeta brillante al pasar el mouse */
-            background-color: rgba(139, 92, 246, 0.05);
-            /* Fondo apenas tintado de violeta para que contraste con el fondo oscuro */
+            border-color: #FF3B3B;
+            background-color: #242836; 
         }
 
-        /* ESTADO SELECCIONADO: Cuando el input radio oculto está marcado (checked) */
         .btn-check:checked+.btn-check-label {
-            border: 2px solid #8b5cf6 !important;
-            /* Borde violeta fijo */
-            background-color: rgba(139, 92, 246, 0.1) !important;
-            /* Fondo violeta más notorio */
+            border: 2px solid #FF3B3B !important;
+            background-color: rgba(255, 59, 59, 0.1) !important;
             transform: translateY(-3px);
-            /* Efecto 3D de elevación */
-            box-shadow: 0 6px 15px rgba(139, 92, 246, 0.25);
-            /* Sombra violeta brillante debajo */
+            box-shadow: 0 6px 15px rgba(255, 59, 59, 0.2);
+        }
+        
+        .header-checkout {
+            background-color: #0b0c10;
+            border-bottom: 1px solid #1f222e;
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .icon-opcion {
+            width: 32px;
+            height: 32px;
+            padding: 6px;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .btn-check:checked + .btn-check-label .icon-opcion {
+            background-color: #FF3B3B;
+            filter: invert(1);
+        }
+
+        .logo-transporte {
+            height: 30px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            filter: brightness(1.2);
         }
     </style>
 
-    {{-- CONTENEDOR PRINCIPAL DE LA PÁGINA --}}
     <div class="container mt-5 mb-5">
-        <h2 class="fw-bold mb-4 text-uppercase">Finalizar Compra</h2>
+        <h2 class="fw-black mb-4 text-uppercase tracking-tighter display-6 text-white">Finalizar <span class="text-mars">Compra</span></h2>
 
-        {{-- FORMULARIO GENERAL: Envuelve toda la pantalla para capturar el evento submit (Pagar) al final --}}
         <form id="form-checkout">
-            @csrf {{-- Token de seguridad de Laravel --}}
+            @csrf
 
             <div class="row g-4">
-
-                {{-- COLUMNA IZQUIERDA (Ocupa 8 de las 12 columnas en pantallas grandes): Contiene los pasos de datos --}}
                 <div class="col-lg-8">
 
-                    {{-- PASO 1: DATOS DE FACTURACIÓN --}}
-                    <div class="card card-checkout bg-dark border-secondary mb-4 shadow-sm">
-                        {{-- Cabecera del Paso 1 --}}
-                        <div class="card-header border-secondary bg-black py-3">
+                    {{-- PASO 1: DATOS --}}
+                    <div class="card card-checkout mb-4 shadow-lg">
+                        <div class="header-checkout py-3 px-4">
                             <h5 class="mb-0 fw-bold text-white d-flex align-items-center">
-                                <img src="{{ asset('assets/person-circle.svg') }}" alt="Datos" class="me-2"
-                                    style="width: 24px; filter: invert(1);">
+                                <img src="{{ asset('assets/person-circle.svg') }}" class="me-2" style="width: 20px; filter: invert(1);">
                                 1. Datos de Facturación
                             </h5>
                         </div>
-                        {{-- Cuerpo del Paso 1: Inputs de texto básicos --}}
                         <div class="card-body p-4">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label text-secondary fw-bold small">Nombre</label>
-                                    <input type="text" class="form-control bg-dark text-white border-secondary" required>
+                                    <label class="form-label text-secondary fw-bold small text-uppercase">Nombre</label>
+                                    <input type="text" class="form-control input-dark" required maxlength="50">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label text-secondary fw-bold small">Apellido</label>
-                                    <input type="text" class="form-control bg-dark text-white border-secondary" required>
+                                    <label class="form-label text-secondary fw-bold small text-uppercase">Apellido</label>
+                                    <input type="text" class="form-control input-dark" required maxlength="50">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label text-secondary fw-bold small">Email</label>
-                                    <input type="email" class="form-control bg-dark text-white border-secondary" required>
+                                    <label class="form-label text-secondary fw-bold small text-uppercase">Email</label>
+                                    <input type="email" class="form-control input-dark" required maxlength="100">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label text-secondary fw-bold small">Teléfono</label>
-                                    <input type="tel" class="form-control bg-dark text-white border-secondary"
-                                        placeholder="Ej: 3794123456" required>
+                                    <label class="form-label text-secondary fw-bold small text-uppercase">Teléfono</label>
+                                    <input type="tel" class="form-control input-dark" placeholder="Ej: 3794123456" required maxlength="15">
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {{-- PASO 2: MÉTODO DE ENVÍO --}}
-                    <div class="card card-checkout bg-dark border-secondary mb-4 shadow-sm">
-                        {{-- Cabecera del Paso 2 --}}
-                        <div class="card-header border-secondary bg-black py-3">
+                    {{-- PASO 2: ENVÍO --}}
+                    <div class="card card-checkout mb-4 shadow-lg">
+                        <div class="header-checkout py-3 px-4">
                             <h5 class="mb-0 fw-bold text-white d-flex align-items-center">
-                                <img src="{{ asset('assets/boxes.svg') }}" alt="Envío" class="me-2"
-                                    style="width: 24px; filter: invert(1);">
+                                <img src="{{ asset('assets/boxes.svg') }}" class="me-2" style="width: 20px; filter: invert(1);">
                                 2. Método de Envío
                             </h5>
                         </div>
-                        {{-- Cuerpo del Paso 2: Opciones de logística --}}
                         <div class="card-body p-4">
                             <div class="row g-3">
-
-                                {{-- Botón 1: Retiro en Local --}}
+                                
                                 <div class="col-12">
-                                    {{-- Input radio oculto nativo de Bootstrap (btn-check) --}}
-                                    <input type="radio" class="btn-check" name="tipo_envio" id="radioRetiro"
-                                        value="retiro" required autocomplete="off">
-                                    {{-- Etiqueta vinculada al input anterior. Toda el área visual es el botón --}}
-                                    <label
-                                        class="btn btn-check-label w-100 p-3 text-start d-flex justify-content-between align-items-center"
-                                        for="radioRetiro">
-                                        <span>
-                                            <strong class="text-white fs-5">Retiro en Local</strong><br>
-                                            <small class="text-secondary">Av. 25 de Mayo 1234, Corrientes</small>
-                                        </span>
+                                    <input type="radio" class="btn-check" name="tipo_envio" id="radioRetiro" value="retiro" required autocomplete="off">
+                                    <label class="btn btn-check-label w-100 p-3 text-start d-flex justify-content-between align-items-center" for="radioRetiro">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="icon-opcion d-flex justify-content-center align-items-center">
+                                                <img src="{{ asset('assets/shop.svg') }}" style="width: 20px; filter: invert(1);">
+                                            </div>
+                                            <div>
+                                                <strong class="text-white fs-5">Retiro en Local</strong><br>
+                                                <small class="text-secondary">Av. 25 de Mayo 1234, Corrientes</small>
+                                            </div>
+                                        </div>
                                         <span class="text-success fw-bold fs-5">Gratis</span>
                                     </label>
                                 </div>
 
-                                {{-- Botón 2: Envío a Domicilio --}}
                                 <div class="col-12">
-                                    <input type="radio" class="btn-check" name="tipo_envio" id="radioEnvio"
-                                        value="domicilio" autocomplete="off">
-                                    <label
-                                        class="btn btn-check-label w-100 p-3 text-start d-flex justify-content-between align-items-center"
-                                        for="radioEnvio">
-                                        <span>
-                                            <strong class="text-white fs-5">Envío a Domicilio</strong><br>
-                                            <small class="text-secondary">Entrega en la puerta de tu casa</small>
-                                        </span>
-                                        <span id="label-precio-envio" class="text-secondary small">Selecciona
-                                            transporte...</span>
+                                    <input type="radio" class="btn-check" name="tipo_envio" id="radioEnvio" value="domicilio" autocomplete="off">
+                                    <label class="btn btn-check-label w-100 p-3 text-start d-flex justify-content-between align-items-center" for="radioEnvio">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="icon-opcion d-flex justify-content-center align-items-center">
+                                                <img src="{{ asset('assets/truck.svg') }}" style="width: 20px; filter: invert(1);">
+                                            </div>
+                                            <div>
+                                                <strong class="text-white fs-5">Envío a Domicilio</strong><br>
+                                                <small class="text-secondary">Entrega en la puerta de tu casa</small>
+                                            </div>
+                                        </div>
+                                        <span id="label-precio-envio" class="text-secondary small">Selecciona transporte...</span>
                                     </label>
                                 </div>
                             </div>
 
-                            {{-- SECCIÓN DINÁMICA: Este bloque completo está oculto por defecto. Solo aparece si seleccionan "Envío a Domicilio" --}}
-                            <div id="seccion-domicilio" class="seccion-oculta mt-4 pt-4 border-top border-secondary">
-
-                                <h6 class="text-white fw-bold mb-3">Selecciona el transporte:</h6>
+                            <div id="seccion-domicilio" class="seccion-oculta mt-4 pt-4 border-top border-secondary border-opacity-25">
+                                <h6 class="text-white fw-bold mb-3 text-uppercase" style="letter-spacing: 1px;">Selecciona el transporte:</h6>
+                                
                                 <div class="row g-3 mb-4">
-                                    {{-- Sub-opción A: Andreani --}}
                                     <div class="col-md-6">
-                                        <input type="radio" class="btn-check" name="envio_precio" id="transAndreani"
-                                            value="10500" autocomplete="off">
-                                        <label class="btn btn-check-label h-100 w-100 p-3 text-start" for="transAndreani">
-                                            <strong class="text-white fs-6">Andreani</strong><br>
-                                            <span class="text-success fw-bold">$10.500</span>
+                                        <input type="radio" class="btn-check" name="envio_precio" id="transAndreani" value="10500" autocomplete="off">
+                                        <label class="btn btn-check-label h-100 w-100 p-3 text-start d-flex align-items-center gap-3" for="transAndreani">
+                                            <div style="width: 70px; flex-shrink: 0;" class="text-center">
+                                                <img src="{{ asset('img/anlogo.webp') }}" class="logo-transporte" alt="Andreani">
+                                            </div>
+                                            <div>
+                                                <strong class="text-white fs-6 d-block mb-1">Andreani</strong>
+                                                <span class="text-success fw-bold">$10.500</span>
+                                            </div>
                                         </label>
                                     </div>
-                                    {{-- Sub-opción B: Correo Argentino --}}
+                                    
                                     <div class="col-md-6">
-                                        <input type="radio" class="btn-check" name="envio_precio" id="transCorreo"
-                                            value="11000" autocomplete="off">
-                                        <label class="btn btn-check-label h-100 w-100 p-3 text-start" for="transCorreo">
-                                            <strong class="text-white fs-6">Correo Argentino</strong><br>
-                                            <span class="text-success fw-bold">$11.000</span>
+                                        <input type="radio" class="btn-check" name="envio_precio" id="transCorreo" value="11000" autocomplete="off">
+                                        <label class="btn btn-check-label h-100 w-100 p-3 text-start d-flex align-items-center gap-3" for="transCorreo">
+                                            <div style="width: 70px; flex-shrink: 0;" class="text-center">
+                                                <img src="{{ asset('img/calogo.webp') }}" class="logo-transporte" alt="Correo Argentino">
+                                            </div>
+                                            <div>
+                                                <strong class="text-white fs-6 d-block mb-1">Correo Argentino</strong>
+                                                <span class="text-success fw-bold">$11.000</span>
+                                            </div>
                                         </label>
                                     </div>
                                 </div>
 
-                                {{-- Campos de dirección de entrega. Si se abre esta sección, JS los vuelve obligatorios (required) --}}
-                                <h6 class="text-white fw-bold mb-3">Dirección de entrega:</h6>
+                                <h6 class="text-white fw-bold mb-3 text-uppercase" style="letter-spacing: 1px;">Dirección de entrega:</h6>
                                 <div class="row g-3">
                                     <div class="col-md-6">
-                                        <label class="small text-secondary fw-bold mb-1">Provincia</label>
-                                        {{-- Mantenemos la clase input-domicilio para que el JS sepa cuándo hacerlo obligatorio --}}
-                                        <select class="form-select bg-dark text-white border-secondary input-domicilio">
+                                        <label class="small text-secondary fw-bold mb-1 text-uppercase">Provincia</label>
+                                        <select class="form-select input-dark input-domicilio">
                                             <option selected disabled value="">Seleccione...</option>
-                                            <option>Buenos Aires</option>
-                                            <option>CABA</option>
-                                            <option>Catamarca</option>
-                                            <option>Chaco</option>
-                                            <option>Chubut</option>
-                                            <option>Córdoba</option>
-                                            <option>Corrientes</option>
-                                            <option>Entre Ríos</option>
-                                            <option>Formosa</option>
-                                            <option>Jujuy</option>
-                                            <option>La Pampa</option>
-                                            <option>La Rioja</option>
-                                            <option>Mendoza</option>
-                                            <option>Misiones</option>
-                                            <option>Neuquén</option>
-                                            <option>Río Negro</option>
-                                            <option>Salta</option>
-                                            <option>San Juan</option>
-                                            <option>San Luis</option>
-                                            <option>Santa Cruz</option>
-                                            <option>Santa Fe</option>
-                                            <option>Santiago del Estero</option>
-                                            <option>Tierra del Fuego</option>
-                                            <option>Tucumán</option>
+                                            <option>Buenos Aires</option><option>CABA</option><option>Catamarca</option><option>Chaco</option><option>Chubut</option><option>Córdoba</option><option>Corrientes</option><option>Entre Ríos</option><option>Formosa</option><option>Jujuy</option><option>La Pampa</option><option>La Rioja</option><option>Mendoza</option><option>Misiones</option><option>Neuquén</option><option>Río Negro</option><option>Salta</option><option>San Juan</option><option>San Luis</option><option>Santa Cruz</option><option>Santa Fe</option><option>Santiago del Estero</option><option>Tierra del Fuego</option><option>Tucumán</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="small text-secondary fw-bold mb-1">Localidad</label>
-                                        <input type="text"
-                                            class="form-control bg-dark text-white border-secondary input-domicilio">
+                                        <label class="small text-secondary fw-bold mb-1 text-uppercase">Localidad</label>
+                                        <input type="text" class="form-control input-dark input-domicilio" maxlength="50">
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="small text-secondary fw-bold mb-1">Calle y Altura</label>
-                                        <input type="text"
-                                            class="form-control bg-dark text-white border-secondary input-domicilio">
+                                        <label class="small text-secondary fw-bold mb-1 text-uppercase">Calle y Altura</label>
+                                        <input type="text" class="form-control input-dark input-domicilio" maxlength="100">
                                     </div>
                                     <div class="col-md-3">
-                                        <label class="small text-secondary fw-bold mb-1">Codigo Postal</label>
-                                        <input type="text"
-                                            class="form-control bg-dark text-white border-secondary input-domicilio">
+                                        <label class="small text-secondary fw-bold mb-1 text-uppercase">C.P.</label>
+                                        <input type="text" class="form-control input-dark input-domicilio" maxlength="8">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {{-- PASO 3: MÉTODO DE PAGO --}}
-                    <div class="card card-checkout bg-dark border-secondary shadow-sm">
-                        {{-- Cabecera del Paso 3 --}}
-                        <div class="card-header border-secondary bg-black py-3">
+                    {{-- PASO 3: PAGO --}}
+                    <div class="card card-checkout mb-4 shadow-lg">
+                        <div class="header-checkout py-3 px-4">
                             <h5 class="mb-0 fw-bold text-white d-flex align-items-center">
-                                <img src="{{ asset('assets/credit-card.svg') }}" alt="Pago" class="me-2"
-                                    style="width: 24px; filter: invert(1);">
+                                <img src="{{ asset('assets/credit-card.svg') }}" class="me-2" style="width: 20px; filter: invert(1);">
                                 3. Método de Pago
                             </h5>
                         </div>
-                        {{-- Cuerpo del Paso 3: Tarjeta vs Transferencia --}}
                         <div class="card-body p-4">
                             <div class="row g-3">
-
-                                {{-- Opción Pago 1: Tarjeta --}}
                                 <div class="col-12">
-                                    <input type="radio" class="btn-check" name="metodo_pago" id="pagoTarjeta"
-                                        value="tarjeta" required autocomplete="off">
+                                    <input type="radio" class="btn-check" name="metodo_pago" id="pagoTarjeta" value="tarjeta" required autocomplete="off">
                                     <label class="btn btn-check-label w-100 p-3 text-start" for="pagoTarjeta">
-                                        <strong class="text-white fs-5">Tarjeta de Crédito o Débito</strong><br>
-                                        <small class="text-secondary">Pagos seguros con cifrado bancario</small>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="icon-opcion d-flex justify-content-center align-items-center">
+                                                <img src="{{ asset('assets/credit-card-fill.svg') }}" style="width: 20px; filter: invert(1);">
+                                            </div>
+                                            <div>
+                                                <strong class="text-white fs-5">Tarjeta de Crédito o Débito</strong><br>
+                                                <small class="text-secondary">Pagos seguros con cifrado bancario</small>
+                                            </div>
+                                        </div>
                                     </label>
                                 </div>
 
-                                {{-- SECCIÓN DINÁMICA: Formulario de la tarjeta (Oculto por defecto) --}}
-                                <div id="form-tarjeta"
-                                    class="seccion-oculta col-12 p-4 bg-black rounded border border-secondary mt-3 shadow-lg">
+                                <div id="form-tarjeta" class="seccion-oculta col-12 p-4 rounded mt-3 shadow-lg" style="background-color: #0b0c10; border: 1px solid #1f222e;">
                                     <div class="row g-3">
                                         <div class="col-12">
-                                            <label class="small text-secondary fw-bold mb-1">Nombre y Apellido (Como
-                                                aparece en la tarjeta)</label>
-                                            <input type="text" class="form-control bg-dark border-secondary text-white"
-                                                placeholder="Ej: JUAN PEREZ">
+                                            <label class="small text-secondary fw-bold mb-1 text-uppercase">Nombre y Apellido</label>
+                                            <input type="text" class="form-control input-dark" placeholder="Ej: JUAN PEREZ" id="card-name" maxlength="50">
                                         </div>
                                         <div class="col-12">
-                                            <label class="small text-secondary fw-bold mb-1">Número de Tarjeta</label>
-                                            <input type="text" class="form-control bg-dark border-secondary text-white"
-                                                placeholder="0000 0000 0000 0000">
+                                            <label class="small text-secondary fw-bold mb-1 text-uppercase">Número de Tarjeta</label>
+                                            <input type="text" class="form-control input-dark" placeholder="0000 0000 0000 0000" id="card-number" maxlength="19">
                                         </div>
                                         <div class="col-md-6">
-                                            <label class="small text-secondary fw-bold mb-1">Vencimiento</label>
-                                            <input type="text" class="form-control bg-dark border-secondary text-white"
-                                                placeholder="MM/AA">
+                                            <label class="small text-secondary fw-bold mb-1 text-uppercase">Vencimiento</label>
+                                            <input type="text" class="form-control input-dark" placeholder="MM/AA" id="card-expiry" maxlength="5">
                                         </div>
                                         <div class="col-md-6">
-                                            <label class="small text-secondary fw-bold mb-1">CVC / CVV</label>
-                                            <input type="text" class="form-control bg-dark border-secondary text-white"
-                                                placeholder="123">
+                                            <label class="small text-secondary fw-bold mb-1 text-uppercase">CVC / CVV</label>
+                                            <input type="text" class="form-control input-dark" placeholder="***" id="card-cvv" maxlength="3">
                                         </div>
                                     </div>
                                 </div>
 
-                                {{-- Opción Pago 2: Transferencia --}}
                                 <div class="col-12">
-                                    <input type="radio" class="btn-check" name="metodo_pago" id="pagoTransf"
-                                        value="transferencia" autocomplete="off">
+                                    <input type="radio" class="btn-check" name="metodo_pago" id="pagoTransf" value="transferencia" autocomplete="off">
                                     <label class="btn btn-check-label w-100 p-3 text-start mt-2" for="pagoTransf">
-                                        <strong class="text-white fs-5">Transferencia Bancaria</strong><br>
-                                        <small class="text-secondary">Abona directamente a nuestra cuenta bancaria</small>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="icon-opcion d-flex justify-content-center align-items-center">
+                                                <img src="{{ asset('assets/bank.svg') }}" style="width: 20px; filter: invert(1);">
+                                            </div>
+                                            <div>
+                                                <strong class="text-white fs-5">Transferencia Bancaria</strong><br>
+                                                <small class="text-secondary">Abona directamente a nuestra cuenta bancaria</small>
+                                            </div>
+                                        </div>
                                     </label>
                                 </div>
 
-                                {{-- SECCIÓN DINÁMICA: Datos bancarios (Oculto por defecto) --}}
-                                <div id="info-transferencia"
-                                    class="seccion-oculta col-12 p-4 bg-black rounded border border-secondary mt-3 text-center shadow-lg">
-                                    <p class="mb-2 text-primary fw-bold small text-uppercase">Datos de la cuenta receptora:
-                                    </p>
-                                    <h5 class="text-white mb-1">CBU: <span
-                                            class="fw-normal text-secondary">00000031000123456789</span></h5>
-                                    <h5 class="text-white mb-0">Alias: <span
-                                            class="fw-normal text-secondary">GAMING.STATION.MP</span></h5>
+                                {{-- PANEL DE TRANSFERENCIA BANCARIA CORREGIDO (Logo + Datos) --}}
+                                <div id="info-transferencia" class="seccion-oculta col-12 p-4 rounded mt-3 shadow-lg" style="background-color: #0b0c10; border: 1px solid #1f222e;">
+                                    <div class="d-flex flex-column flex-md-row align-items-center gap-4 text-start">
+                                        
+                                        {{-- Sector Izquierdo: Logo del Banco --}}
+                                        <div style="width: 120px; flex-shrink: 0;" class="text-center">
+                                            <img src="{{ asset('img/malogo.webp') }}" class="img-fluid" alt="Banco Macro" style="max-height: 60px; filter: brightness(1.1);">
+                                        </div>
+                                        
+                                        {{-- Sector Derecho: Datos de la cuenta (separado por una línea sutil) --}}
+                                        <div class="border-start border-secondary border-opacity-25 ps-md-4">
+                                            <p class="mb-3 text-mars fw-bold small text-uppercase" style="letter-spacing: 1px;">Datos de la cuenta receptora:</p>
+                                            <h6 class="text-white mb-2">Banco: <span class="fw-normal text-secondary">Macro</span></h6>
+                                            <h6 class="text-white mb-2">Titular: <span class="fw-normal text-secondary">Carlos López</span></h6>
+                                            <h6 class="text-white mb-2">CUIL: <span class="fw-normal text-secondary">20-12345678-9</span></h6>
+                                            <h6 class="text-white mb-2">CBU: <span class="fw-normal text-secondary">00000031000123456789</span></h6>
+                                            <h6 class="text-white mb-0">Alias: <span class="fw-normal text-secondary">GAMING.STATION.MP</span></h6>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {{-- COLUMNA DERECHA (Ocupa 4 de las 12 columnas): Panel fijo con los totales --}}
                 <div class="col-lg-4">
-                    {{-- Panel flotante gracias a sticky-top --}}
-                    <div class="card card-checkout bg-black border-primary shadow-lg sticky-top"
-                        style="top: 120px; z-index: 10;">
+                    <div class="card card-checkout border-0 shadow-lg sticky-top" style="top: 120px; z-index: 10;">
                         <div class="card-body p-4">
-                            <h4 class="fw-bold mb-4 border-bottom border-secondary pb-2">Resumen</h4>
+                            <h4 class="fw-black mb-4 border-bottom border-secondary border-opacity-25 pb-3 text-uppercase text-white">Resumen de Orden</h4>
 
-                            {{-- DIV DONDE JAVASCRIPT INYECTARÁ LOS PRODUCTOS DEL LOCALSTORAGE --}}
                             <div id="checkout-items" class="mb-4"></div>
 
-                            {{-- Desglose de precios matemáticos --}}
-                            <div class="border-top border-secondary pt-3">
-                                <div class="d-flex justify-content-between mb-2 small text-secondary">
+                            <div class="border-top border-secondary border-opacity-25 pt-4">
+                                <div class="d-flex justify-content-between mb-2 text-secondary fw-medium">
                                     <span>Subtotal</span>
-                                    <span id="checkout-subtotal">$0</span>
+                                    <span id="checkout-subtotal" class="text-white">$0</span>
                                 </div>
-                                <div class="d-flex justify-content-between mb-2 small text-secondary">
+                                <div class="d-flex justify-content-between mb-3 text-secondary fw-medium">
                                     <span>Envío</span>
-                                    <span id="checkout-envio">$0</span>
+                                    <span id="checkout-envio" class="text-white">$0</span>
                                 </div>
-                                <div class="d-flex justify-content-between mt-3 fs-4">
-                                    <span class="fw-bold">Total</span>
-                                    <span id="checkout-total" class="text-success fw-bold">$0</span>
+                                <div class="d-flex justify-content-between mt-4 fs-3">
+                                    <span class="fw-black text-white">Total</span>
+                                    <span id="checkout-total" class="text-success fw-black">$0</span>
                                 </div>
                             </div>
 
-                            {{-- BOTÓN SUBMIT: Gatilla la validación HTML y luego el evento JS para finalizar --}}
-                            <button type="submit"
-                                class="btn btn-primary w-100 py-3 fw-bold fs-5 mt-4 rounded-3 shadow">PAGAR AHORA</button>
+                            <button type="submit" class="btn btn-mars w-100 py-3 fw-bold mt-4 shadow-lg" style="font-size: 1.1rem; letter-spacing: 1px; border-radius: 0.8rem;">
+                                PAGAR AHORA
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -344,42 +327,30 @@
         </form>
     </div>
 
-    {{-- SCRIPT: Lógica de la página de comercialización --}}
     <script>
-        // El código espera a que todo el HTML se dibuje en pantalla antes de ejecutar la lógica
         document.addEventListener('DOMContentLoaded', () => {
-
-            // 1. CARGA DE DATOS: Traemos los productos de la memoria del navegador
             const carrito = JSON.parse(localStorage.getItem('gaming_station_cart')) || [];
-
-            // Referencias a los lugares donde inyectaremos texto
             const subtotalEl = document.getElementById('checkout-subtotal');
             const envioEl = document.getElementById('checkout-envio');
             const totalEl = document.getElementById('checkout-total');
-
-            // Variables para llevar las matemáticas de la cuenta
             let subtotal = 0;
             let costoEnvio = 0;
 
-            // 2. RENDERIZADO DEL RESUMEN: Pintamos cada producto en la tarjeta derecha
             const contenedorItems = document.getElementById('checkout-items');
             if (carrito.length === 0) {
-                // Si el usuario llega hasta aquí engañando al sistema con el carrito vacío
-                contenedorItems.innerHTML = '<p class="text-danger small text-center">No hay productos.</p>';
+                contenedorItems.innerHTML = '<p class="text-danger small text-center fw-bold">No hay productos en el carrito.</p>';
             } else {
-                // Si hay productos, mapeamos el arreglo a HTML
                 contenedorItems.innerHTML = carrito.map(item => {
-                    const totalItem = item.precio * item.cantidad; // Precio unitario * Cantidad
-                    subtotal += totalItem; // Sumamos al subtotal general
+                    const totalItem = item.precio * item.cantidad; 
+                    subtotal += totalItem; 
                     return `<div class="d-flex align-items-center mb-3">
-                        <div class="bg-white p-1 rounded me-3" style="width: 50px; height: 50px;"><img src="${item.imagen}" class="w-100 h-100 object-fit-contain"></div>
-                        <div class="flex-grow-1"><h6 class="mb-0 text-white small">${item.nombre}</h6><small class="text-secondary">Cant: ${item.cantidad}</small></div>
-                        <div class="text-success fw-bold small">$${totalItem.toLocaleString('es-AR')}</div>
+                        <div class="p-1 rounded-3 me-3" style="width: 55px; height: 55px; background-color: rgba(255,255,255,0.05);"><img src="${item.imagen}" class="w-100 h-100 object-fit-contain"></div>
+                        <div class="flex-grow-1"><h6 class="mb-1 text-white fw-bold" style="font-size: 0.9rem;">${item.nombre}</h6><small class="text-secondary">Cant: ${item.cantidad}</small></div>
+                        <div class="text-white fw-bold small">$${totalItem.toLocaleString('es-AR')}</div>
                     </div>`;
                 }).join('');
             }
 
-            // 3. FUNCIÓN GLOBAL DE MATEMÁTICAS: Actualiza los números en pantalla con formato argentino
             const actualizarTotales = () => {
                 const total = subtotal + costoEnvio;
                 subtotalEl.innerText = '$' + subtotal.toLocaleString('es-AR');
@@ -387,47 +358,39 @@
                 totalEl.innerText = '$' + total.toLocaleString('es-AR');
             };
 
-            // 4. LÓGICA DE ENVÍO Y FORMULARIOS CONDICIONALES
             const seccionDomicilio = document.getElementById('seccion-domicilio');
             const inputsDomicilio = document.querySelectorAll('.input-domicilio');
 
-            // Escuchamos cuando el usuario cambia entre Retiro Local y Envío a Domicilio
             document.querySelectorAll('input[name="tipo_envio"]').forEach(radio => {
                 radio.addEventListener('change', (e) => {
                     if (e.target.value === 'domicilio') {
-                        // Abre el panel y vuelve obligatorios los inputs de dirección
                         seccionDomicilio.style.display = 'block';
                         inputsDomicilio.forEach(i => i.required = true);
                     } else {
-                        // Cierra el panel, quita la obligatoriedad, reinicia el costo y desmarca transportes
                         seccionDomicilio.style.display = 'none';
                         inputsDomicilio.forEach(i => i.required = false);
                         costoEnvio = 0;
-                        document.querySelectorAll('input[name="envio_precio"]').forEach(r => r
-                            .checked = false);
+                        document.querySelectorAll('input[name="envio_precio"]').forEach(r => r.checked = false);
                         actualizarTotales();
                     }
                 });
             });
 
-            // Escuchamos cuando el usuario elige entre Andreani o Correo Argentino
             document.querySelectorAll('input[name="envio_precio"]').forEach(radio => {
                 radio.addEventListener('change', (e) => {
-                    costoEnvio = parseInt(e.target.value); // Convertimos el string a número entero
-                    actualizarTotales(); // Recalculamos el total final
+                    costoEnvio = parseInt(e.target.value);
+                    actualizarTotales();
                 });
             });
 
-            // 5. LÓGICA DE MEDIOS DE PAGO
             const formTarjeta = document.getElementById('form-tarjeta');
             const infoTransf = document.getElementById('info-transferencia');
 
-            // Escuchamos cuando cambia entre Tarjeta y Transferencia
             document.querySelectorAll('input[name="metodo_pago"]').forEach(radio => {
                 radio.addEventListener('change', (e) => {
                     if (e.target.value === 'tarjeta') {
-                        formTarjeta.style.display = 'block'; // Muestra inputs de la tarjeta
-                        infoTransf.style.display = 'none'; // Oculta alias y CBU
+                        formTarjeta.style.display = 'block';
+                        infoTransf.style.display = 'none';
                     } else {
                         formTarjeta.style.display = 'none';
                         infoTransf.style.display = 'block';
@@ -435,22 +398,45 @@
                 });
             });
 
-            // 6. MANEJO DEL BOTÓN "PAGAR AHORA" (Submit)
-            document.getElementById('form-checkout').addEventListener('submit', (e) => {
-                e.preventDefault(); // Detiene la recarga automática de la página
+            const inputNumero = document.getElementById('card-number');
+            const inputCvv = document.getElementById('card-cvv');
 
-                // Validación de seguridad adicional
+            if (inputNumero) {
+                inputNumero.addEventListener('input', (e) => {
+                    e.target.value = e.target.value.replace(/\D/g, ''); 
+                });
+            }
+
+            if (inputCvv) {
+                inputCvv.addEventListener('input', (e) => {
+                    e.target.value = e.target.value.replace(/\D/g, ''); 
+                });
+            }
+
+            const inputVencimiento = document.getElementById('card-expiry');
+            
+            if (inputVencimiento) {
+                inputVencimiento.addEventListener('input', (e) => {
+                    let valor = e.target.value.replace(/\D/g, ''); 
+                    
+                    if (valor.length > 2) {
+                        valor = valor.substring(0, 2) + '/' + valor.substring(2, 4);
+                    }
+                    
+                    e.target.value = valor;
+                });
+            }
+
+            document.getElementById('form-checkout').addEventListener('submit', (e) => {
+                e.preventDefault();
                 if (carrito.length === 0) {
                     alert('El carrito está vacío. Agrega productos antes de pagar.');
                     return;
                 }
-
-                // Vaciamos la base de datos local y redirigimos a la pantalla final de éxito
                 localStorage.removeItem('gaming_station_cart');
                 window.location.href = '/confirmacion-pedido';
             });
 
-            // Ejecutamos la matemática por primera vez para poner todo en 0 o calcular el subtotal puro
             actualizarTotales();
         });
     </script>

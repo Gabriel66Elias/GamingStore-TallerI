@@ -4,10 +4,6 @@ namespace App\Http\Controllers;
 
 class ProductoController extends Controller
 {
-    /**
-     * Método privado que simula nuestra Base de Datos temporal.
-     * Retorna el arreglo de todos los productos.
-     */
     private function getProductos()
     {
         return [
@@ -18,7 +14,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/ps5.webp',
                 'precio' => 1200000,
                 'stock' => 1,
-                'specs' => ['Procesador AMD Ryzen Zen 2', '825GB SSD', 'DualSense included']
+                'specs' => ['Procesador AMD Ryzen Zen 2', '825GB SSD', 'DualSense included'],
+                'categoria' => 'Consolas'
             ],
             2 => [
                 'nombre' => 'Nintendo Switch',
@@ -26,7 +23,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/sw2.webp',
                 'precio' => 459999,
                 'stock' => 10,
-                'specs' => ['Pantalla 6.2"', '32GB memoria', 'Joy-Con']
+                'specs' => ['Pantalla 6.2"', '32GB memoria', 'Joy-Con'],
+                'categoria' => 'Consolas'
             ],
             6 => [
                 'nombre' => 'Xbox Series X',
@@ -34,7 +32,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/xboxx.webp',
                 'precio' => 1150000,
                 'stock' => 3,
-                'specs' => ['12 Teraflops de potencia', 'SSD NVMe de 1TB', 'Juego en 4K y hasta 120 FPS']
+                'specs' => ['12 Teraflops de potencia', 'SSD NVMe de 1TB', 'Juego en 4K y hasta 120 FPS'],
+                'categoria' => 'Consolas'
             ],
 
             // --- HARDWARE ---
@@ -44,7 +43,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/rtx5090.webp',
                 'precio' => 2600000,
                 'stock' => 2,
-                'specs' => ['32GB GDDR7', 'Arquitectura Blackwell', 'DLSS 4.0']
+                'specs' => ['32GB GDDR7', 'Arquitectura Blackwell', 'DLSS 4.0'],
+                'categoria' => 'Hardware'
             ],
             4 => [
                 'nombre' => 'Tarjeta grafica RX 6600xt',
@@ -52,15 +52,17 @@ class ProductoController extends Controller
                 'imagen' => '/img/rx6600xt.webp',
                 'precio' => 450000,
                 'stock' => 3,
-                'specs' => ['8GB GDDR6', 'FSR 3.0', '1080p Ultra']
+                'specs' => ['8GB GDDR6', 'FSR 3.0', '1080p Ultra'],
+                'categoria' => 'Hardware'
             ],
             5 => [
                 'nombre' => 'Memoria RAM 32gb (x2 16gb) HyperX',
                 'descripcion' => 'Pack de 2 memorias ram de 16gb 3200hz con rgb',
                 'imagen' => '/img/ram.webp',
                 'precio' => 98000,
-                'stock' => 3, /* Nota: Corregí el precio anterior que era 9 millones */
-                'specs' => ['3200MHz', 'CL16', 'RGB Lighting']
+                'stock' => 3,
+                'specs' => ['3200MHz', 'CL16', 'RGB Lighting'],
+                'categoria' => 'Hardware'
             ],
             7 => [
                 'nombre' => 'Procesador AMD Ryzen 5 5600G',
@@ -68,7 +70,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/ryzen55600g.webp',
                 'precio' => 245000,
                 'stock' => 8,
-                'specs' => ['6 Núcleos / 12 Hilos', 'Gráficos integrados Radeon', 'Reloj base 3.9 GHz', 'Socket AM4']
+                'specs' => ['6 Núcleos / 12 Hilos', 'Gráficos integrados Radeon', 'Reloj base 3.9 GHz', 'Socket AM4'],
+                'categoria' => 'Hardware'
             ],
             8 => [
                 'nombre' => 'Motherboard ASUS ROG Strix B550-F',
@@ -76,7 +79,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/asus-b550f.webp',
                 'precio' => 290000,
                 'stock' => 5,
-                'specs' => ['Chipset B550', 'Soporte PCIe 4.0', 'Doble M.2', 'Audio SupremeFX']
+                'specs' => ['Chipset B550', 'Soporte PCIe 4.0', 'Doble M.2', 'Audio SupremeFX'],
+                'categoria' => 'Hardware'
             ],
             9 => [
                 'nombre' => 'SSD M.2 1TB Samsung 980 PRO',
@@ -84,7 +88,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/samsung-980pro.webp',
                 'precio' => 165000,
                 'stock' => 15,
-                'specs' => ['NVMe M.2 PCIe 4.0', 'Lectura hasta 7000 MB/s', 'Caché DRAM']
+                'specs' => ['NVMe M.2 PCIe 4.0', 'Lectura hasta 7000 MB/s', 'Caché DRAM'],
+                'categoria' => 'Hardware'
             ],
             10 => [
                 'nombre' => 'Fuente de Poder Corsair RM750x',
@@ -92,7 +97,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/corsair-rm750x.webp',
                 'precio' => 195000,
                 'stock' => 4,
-                'specs' => ['750 Watts', 'Certificación 80 Plus Gold', 'Totalmente Modular']
+                'specs' => ['750 Watts', 'Certificación 80 Plus Gold', 'Totalmente Modular'],
+                'categoria' => 'Hardware'
             ],
 
             // --- PERIFÉRICOS ---
@@ -102,7 +108,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/mando-ps5.webp',
                 'precio' => 75000,
                 'stock' => 5,
-                'specs' => ['Retroalimentación háptica', 'Gatillos adaptativos']
+                'specs' => ['Retroalimentación háptica', 'Gatillos adaptativos'],
+                'categoria' => 'Periféricos'
             ],
             11 => [
                 'nombre' => 'Teclado Razer BlackWidow V3',
@@ -110,7 +117,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/razer-blackwidow.webp',
                 'precio' => 185000,
                 'stock' => 6,
-                'specs' => ['Switches Mecánicos Verdes', 'Iluminación RGB Razer Chroma', 'Reposamuñecas ergonómico']
+                'specs' => ['Switches Mecánicos Verdes', 'Iluminación RGB Razer Chroma', 'Reposamuñecas ergonómico'],
+                'categoria' => 'Periféricos'
             ],
             12 => [
                 'nombre' => 'Mouse Logitech G Pro X Superlight',
@@ -118,7 +126,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/logitech-gpro.webp',
                 'precio' => 150000,
                 'stock' => 7,
-                'specs' => ['Peso menor a 63 gramos', 'Sensor HERO 25K', 'Inalámbrico LIGHTSPEED']
+                'specs' => ['Peso menor a 63 gramos', 'Sensor HERO 25K', 'Inalámbrico LIGHTSPEED'],
+                'categoria' => 'Periféricos'
             ],
             13 => [
                 'nombre' => 'Auriculares HyperX Cloud II',
@@ -126,7 +135,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/hyperx-cloud2.webp',
                 'precio' => 120000,
                 'stock' => 12,
-                'specs' => ['Sonido Envolvente Virtual 7.1', 'Micrófono con cancelación de ruido', 'Almohadillas de memory foam']
+                'specs' => ['Sonido Envolvente Virtual 7.1', 'Micrófono con cancelación de ruido', 'Almohadillas de memory foam'],
+                'categoria' => 'Periféricos'
             ],
 
             // --- GAMING TVs & MONITORES ---
@@ -136,7 +146,8 @@ class ProductoController extends Controller
                 'imagen' => '/img/monitor-lg-27.webp',
                 'precio' => 420000,
                 'stock' => 4,
-                'specs' => ['Panel IPS de 27 Pulgadas', 'Tasa de refresco de 144Hz', 'Tiempo de respuesta 1ms', 'G-SYNC Compatible']
+                'specs' => ['Panel IPS de 27 Pulgadas', 'Tasa de refresco de 144Hz', 'Tiempo de respuesta 1ms', 'G-SYNC Compatible'],
+                'categoria' => 'TVs y Monitores'
             ],
             15 => [
                 'nombre' => 'Smart TV LG OLED 55" 4K',
@@ -144,37 +155,36 @@ class ProductoController extends Controller
                 'imagen' => '/img/tv-lg-oled55.webp',
                 'precio' => 1850000,
                 'stock' => 2,
-                'specs' => ['55 Pulgadas OLED 4K', 'Tasa de refresco 120Hz', 'HDMI 2.1 con VRR', 'Dolby Vision Gaming']
+                'specs' => ['55 Pulgadas OLED 4K', 'Tasa de refresco 120Hz', 'HDMI 2.1 con VRR', 'Dolby Vision Gaming'],
+                'categoria' => 'TVs y Monitores'
             ]
         ];
     }
 
-    /**
-     * Muestra la vista del Catálogo completo.
-     */
     public function index()
     {
-        $productos = $this->getProductos();
+        $productosRaw = $this->getProductos();
         
-        // Retornamos la vista 'catalogo.blade.php' pasando la variable
-        return view('catalogo', compact('productos'));
+        // Guardamos el ID dentro del array para no perderlo al agrupar
+        foreach ($productosRaw as $id => $producto) {
+            $productosRaw[$id]['id'] = $id;
+        }
+
+        // Agrupamos por la nueva llave 'categoria'
+        $productosAgrupados = collect($productosRaw)->groupBy('categoria');
+        
+        return view('catalogo', compact('productosAgrupados'));
     }
 
-    /**
-     * Muestra el detalle de un producto específico según su ID.
-     */
     public function show($id)
     {
         $productos = $this->getProductos();
 
-        // Si el ID no existe en el arreglo, redirigir al catálogo
         if (!isset($productos[$id])) {
             return redirect('/catalogo');
         }
 
         $producto = $productos[$id];
-        
-        // Retornamos la vista 'consultas.blade.php' pasando el producto específico
         return view('consultas', compact('producto'));
     }
 }

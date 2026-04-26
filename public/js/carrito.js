@@ -109,34 +109,37 @@ function renderizarCarrito() {
         badge.classList.add('d-none');
     }
 
-    // Caso: Carrito Vacío (Acá usamos tu archivo SVG cart3 de assets)
+    // Caso: Carrito Vacío
     if (carrito.length === 0) {
         contenedor.innerHTML = `
             <div class="text-center mt-5 opacity-50">
                 <img src="/assets/cart3.svg" style="width: 48px; height: 48px; filter: invert(1); opacity: 0.5;">
-                <p class="mt-3">Tu carrito está vacío</p>
+                <p class="mt-3 text-white fw-light">Tu carrito está vacío</p>
             </div>`;
         totalTxt.innerText = '$0';
         return;
     }
 
-    // Caso: Con Productos (Generación de tarjetas flexibles)
-    // Para el botón de "Eliminar", como en tu carpeta de assets no descargaste un ícono de "basurero" o "cruz",
-    // mantuve el símbolo de texto '✕' (&#10005;). Es muy ligero y no requiere una imagen extra.
+    // Caso: Con Productos (Generación de tarjetas flexibles con el nuevo diseño)
     let totalGeneral = 0;
     contenedor.innerHTML = carrito.map(item => {
         totalGeneral += item.precio * item.cantidad;
         return `
-            <div class="cart-item-modern d-flex gap-3 align-items-center shadow-sm">
-                <img src="${item.imagen}" class="cart-item-img border border-secondary border-opacity-25">
-                <div class="grow"> 
-                    <div class="d-flex justify-content-between">
-                        <span class="fw-bold text-white small">${item.nombre}</span>
-                        <button class="btn btn-sm p-0 text-secondary" onclick="eliminarItem('${item.id}')">&#10005;</button>
-                    </div>
-                    <div class="text-success fw-bold my-1">$${(item.precio * item.cantidad).toLocaleString('es-AR')}</div>
-                    <input type="number" class="form-control form-control-sm bg-dark text-white border-secondary text-center" 
-                           style="width: 65px;" value="${item.cantidad}" onchange="actualizarCantidad('${item.id}', this.value)">
+            <div class="cart-item-modern d-flex align-items-center">
+                
+                <button class="btn-eliminar-carrito" onclick="eliminarItem('${item.id}')" title="Eliminar producto">&times;</button>
+                
+                <div class="cart-item-img me-3">
+                    <img src="${item.imagen}" alt="${item.nombre}" class="w-100 h-100 object-fit-contain">
+                </div>
+                
+                <div class="grow">
+                    <h6 class="mb-1 text-white fw-bold pe-4" style="font-size: 0.95rem;">${item.nombre}</h6>
+                    <div class="text-success fw-bold mb-2">$${(item.precio * item.cantidad).toLocaleString('es-AR')}</div>
+                    
+                    <input type="number" class="input-dark text-center" value="${item.cantidad}" min="1" 
+                           style="width: 60px; height: 32px; border-radius: 6px; padding: 0;" 
+                           onchange="actualizarCantidad('${item.id}', this.value)">
                 </div>
             </div>`;
     }).join('');

@@ -1,15 +1,37 @@
 @extends('layout.main')
 @section('titulo', 'Catálogo')
+
 @section('contenido')
-    <div class="container mt-5">
-        <h2 class="text-center mb-5 text-white">Consolas y Accesorios</h2>
-        <div class="row g-4">
-
-            {{-- Iteramos sobre el array de productos --}}
-            @foreach($productos as $id => $producto)
-                <x-producto-card :producto="$producto" :id="$id" />
-            @endforeach
-
+    <div class="container mt-5 mb-5">
+        {{-- Encabezado Minimalista --}}
+        <div class="text-center mb-5">
+            <h2 class="fw-black text-white text-uppercase tracking-tighter display-5 mb-2">
+                Catálogo 
+            </h2>
         </div>
+
+        {{-- Componente de Filtros --}}
+        <x-filtro-catalogo />
+
+        {{-- Listado por Categorías --}}
+        @foreach($productosAgrupados as $categoria => $productos)
+            <div class="categoria-bloque mb-5">
+                {{-- Título de Categoría más limpio --}}
+                <div class="d-flex align-items-center mb-4">
+                    <h3 class="text-white fw-bold text-uppercase fs-4 mb-0 me-3">{{ $categoria }}</h3>
+                    <div class="grow border-bottom border-secondary opacity-25"></div>
+                </div>
+
+                {{-- Grilla de Productos --}}
+                <div class="row g-4">
+                    @foreach($productos as $producto)
+                        <x-producto-card :producto="$producto" :id="$producto['id']" />
+                    @endforeach
+                </div>
+            </div>
+        @endforeach
     </div>
+
+    {{-- Script de filtrado --}}
+    <script src="{{ asset('js/filtros.js') }}"></script>
 @endsection

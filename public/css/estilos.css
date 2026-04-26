@@ -1,138 +1,149 @@
 /* ==========================================================================
    PROYECTO: GamingStation
    ARCHIVO: estilos.css
-   DESCRIPCIÓN: Hoja de estilos principal, complementaria a Bootstrap 5.3.
+   NUEVA PALETA: Mars Red (#FF3B3B) y Space Charcoal (#11131A)
    ========================================================================== */
+
+/* Importamos la fuente minimalista y moderna "Inter" desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* --------------------------------------------------------------------------
    1. ESTILOS GLOBALES Y BASE
-   Se usan en: Todas las vistas (layout/main.blade.php)
    -------------------------------------------------------------------------- */
-   body {
-    font-family: 'Arial', sans-serif;
-    background-color: #0b1218; /* Color de fondo base del sitio (Dark Mode) */
-    color: #ffffff; /* Color de texto base */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0b0c10; /* Negro profundo base */
+    color: #e2e8f0; /* Texto claro de alta legibilidad */
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased; /* Suavizado moderno para fuentes */
 }
 
-/* Modificadores globales para títulos */
-h1, h2, h3 {
-    font-weight: bold;
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: -0.5px; /* Minimalismo: letras un poco más juntas */
 }
+
+/* Clases utilitarias de la nueva paleta */
+.text-mars { color: #FF3B3B !important; }
+.text-primary { color: #FF3B3B !important; } /* Mapeo por si quedaron clases viejas */
 
 /* --------------------------------------------------------------------------
    2. NAVBAR Y HEADER
-   Se usan en: layout/main.blade.php
    -------------------------------------------------------------------------- */
 .navbar {
-    background-color: #000000 !important; /* Fuerza el navbar a negro puro */
-    border-bottom: 2px solid #000000;
+    background-color: #11131A !important; /* Space Charcoal */
+    border-bottom: 1px solid #1f222e !important;
+}
+
+.logo-text {
+    letter-spacing: -1.5px;
+    font-weight: 900 !important;
 }
 
 .nav-link {
-    color: #ffffff !important;
+    color: #94a3b8 !important; /* Gris claro */
     font-weight: 500;
-    transition: color 0.3s ease; /* Transición suave al pasar el mouse */
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover, .nav-link.active {
-    color: #3b1691 !important; /* Color primario (Morado/Azul) al hacer hover o estar activo */
+    color: #FF3B3B !important; /* Mars Red al hacer hover */
 }
 
-/* Contenedor relativo para posicionar el número del carrito encima del botón */
-.btn-cart-container {
-    position: relative;
+/* Buscador */
+.input-charcoal {
+    background-color: #1a1d27 !important;
+    border-radius: 8px 0 0 8px;
+    color: #ffffff !important;
+}
+.input-charcoal::placeholder {
+    color: #64748b;
 }
 
-/* El círculo rojo con el número de items en el carrito */
+/* --------------------------------------------------------------------------
+   3. BOTONES Y COMPONENTES GLOBALES
+   -------------------------------------------------------------------------- */
+/* Botón Principal - Mars Red */
+.btn-mars, .btn-primary {
+    background-color: #FF3B3B !important;
+    color: #ffffff !important;
+    border: none;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-mars:hover, .btn-primary:hover {
+    background-color: #e63535 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(255, 59, 59, 0.25) !important;
+}
+
+/* Botón secundario para el buscador */
+.btn-mars-outline {
+    background-color: #1a1d27;
+    color: #FF3B3B;
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
+}
+.btn-mars-outline:hover {
+    background-color: #FF3B3B;
+    color: #ffffff;
+}
+
+/* Círculo del número del carrito */
+.btn-cart-container { position: relative; }
+
 .cart-badge {
     position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #ef4444;
-    color: white;
-    font-size: 0.7rem;
-    font-weight: bold;
-    min-width: 18px;
-    height: 18px;
+    top: -6px;
+    right: -6px;
+    background-color: #11131A;
+    color: #FF3B3B;
+    font-size: 0.75rem;
+    font-weight: 800;
+    min-width: 20px;
+    height: 20px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #000;
-    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
-}
-
-/* --------------------------------------------------------------------------
-   3. COMPONENTES GLOBALES (Botones y Formularios)
-   Se usan en: Múltiples vistas (Catálogo, Contacto, Consultas)
-   -------------------------------------------------------------------------- */
-.btn-primary {
-    background-color: #3b1691; /* Color principal de marca */
-    border: none;
-    font-weight: bold;
-    padding: 10px 25px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #2a0f6a; /* Tono más oscuro para el estado hover */
-    box-shadow: 0 0 15px rgba(59, 22, 145, 0.5); /* Resplandor neon */
-}
-
-/* Ajusta el color del placeholder en los inputs oscuros (contacto.blade.php) */
-.form-control::placeholder {
-    color: #9f9f9f;
-    opacity: 1;
-}
-
-.form-control:focus::placeholder{
-    color: rgba(255,255,255,0.3); /* Atenúa el texto cuando el usuario hace clic */
+    border: 2px solid #0b0c10;
 }
 
 /* --------------------------------------------------------------------------
    4. TARJETAS DE PRODUCTO (Catálogo)
-   Se usan en: components/producto-card.blade.php
    -------------------------------------------------------------------------- */
 .card {
-    background-color: #1a232e !important;
-    border: 1px solid #2d3748 !important;
+    background-color: #11131A !important; /* Space Charcoal */
+    border: 1px solid #1f222e !important;
     color: #ffffff !important;
     border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, border-color 0.3s ease;
     overflow: hidden;
-    height: 100%; /* Asegura que todas las tarjetas midan lo mismo */
+    height: 100%;
 }
 
 .card:hover {
-    transform: translateY(-8px); /* Efecto de elevación al hacer hover */
+    transform: translateY(-8px);
+    border-color: #FF3B3B !important; /* Borde rojo al pasar el mouse */
 }
 
-.tarjeta-producto {
-    overflow: hidden;
-    height: 100%; /* Asegura que todas midan lo mismo en la grilla */
-    transition: transform 0.3s ease;
-}
-
-.tarjeta-producto:hover {
-    transform: translateY(-8px); /* Efecto de elevación */
-    border-color: #3b1691 !important; /* Brillo extra al pasar el mouse */
-}
-/* forzamos que el contenedor de la imagen sea un cuadrado perfecto 1:1 */
+/* Contenedor de la imagen cuadrado perfecto 1:1 */
 .contenedor-img {
     width: 100%;
     height: 0;
     padding-bottom: 100%;
     position: relative;
     overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.02);
 }
 
-/* Recorta la imagen para que llene el cuadrado sin deformarse */
 .contenedor-img img {
     position: absolute;
     top: 0;
@@ -143,12 +154,12 @@ h1, h2, h3 {
     object-position: center;
 }
 
-/* Etiqueta de precio destacada en el catálogo */
+/* Etiqueta de precio */
 .precio-catalogo {
     font-size: 1.6rem;
     font-weight: 800;
-    color: #4ade80; /* Verde neón */
-    letter-spacing: 0.5px;
+    color: #4ade80; /* Mantenemos el verde para el dinero/precios */
+    letter-spacing: -0.5px;
     background: rgba(74, 222, 128, 0.1);
     padding: 5px 10px;
     border-radius: 8px;
@@ -157,21 +168,18 @@ h1, h2, h3 {
 }
 
 /* --------------------------------------------------------------------------
-   5. VISTA DE DETALLE DEL PRODUCTO
-   Se usan en: vistas/consultas.blade.php
+   5. VISTA DE DETALLE DEL PRODUCTO (Consultas)
    -------------------------------------------------------------------------- */
-/* Contenedor principal de la página de detalle */
 .detalle-wrapper {
-    background-color: #111827;
-    border: 1px solid #1f2937;
+    background-color: #11131A;
+    border: 1px solid #1f222e;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-/* Sección izquierda: Fondo radial que simula luz sobre el producto */
 .detalle-img-container {
-    background: radial-gradient(circle at center, #1f2937 0%, #111827 100%);
+    background: radial-gradient(circle at center, #1a1d27 0%, #11131A 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,8 +191,8 @@ h1, h2, h3 {
 .detalle-img-container img {
     max-width: 100%;
     max-height: 400px;
-    object-fit: contain; /* Evita que la imagen original se corte */
-    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.6)); /* Sombra 3D a la silueta */
+    object-fit: contain;
+    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.6));
     transition: transform 0.4s ease;
 }
 
@@ -192,13 +200,12 @@ h1, h2, h3 {
     transform: scale(1.05);
 }
 
-/* Sección derecha: Contenedor de la información */
 .detalle-info-container {
     padding: 4rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #151c24;
+    background-color: #11131A;
     height: 100%;
 }
 
@@ -209,7 +216,6 @@ h1, h2, h3 {
     letter-spacing: -1px;
 }
 
-/* Lista de viñetas personalizadas para las especificaciones */
 .detalle-specs {
     list-style: none;
     padding: 0;
@@ -224,23 +230,21 @@ h1, h2, h3 {
     font-size: 1.05rem;
 }
 
-/* Inyecta un tilde (✓) morado antes de cada item de la lista */
 .detalle-specs li::before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #3b1691;
+    color: #FF3B3B; /* Tilde ahora es Mars Red */
     font-weight: bold;
     font-size: 1.2rem;
 }
 
-/* Input numérico personalizado para seleccionar cantidad */
 .input-cantidad-moderno {
-    background-color: #0b1218;
-    border: 1px solid #374151;
+    background-color: #0b0c10;
+    border: 1px solid #1f222e;
     color: #ffffff;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 8px;
     height: 55px;
     font-size: 1.2rem;
     width: 80px;
@@ -248,65 +252,51 @@ h1, h2, h3 {
 }
 
 .input-cantidad-moderno:focus {
-    border-color: #4ade80;
+    border-color: #FF3B3B;
     outline: none;
 }
 
 /* --------------------------------------------------------------------------
    6. CARRITO LATERAL (OFFCANVAS)
-   Se usan en: components/carrito.blade.php
    -------------------------------------------------------------------------- */
-/* Redefine el panel lateral de Bootstrap */
 .offcanvas-minimalist {
-    background-color: #0f172a !important;
+    background-color: #11131A !important;
     color: #f8fafc;
-    border-left: 1px solid #1e293b !important;
+    border-left: 1px solid #1f222e !important;
     width: 400px !important;
 }
 
-/* Personaliza la barra de desplazamiento (Scrollbar) dentro del carrito */
-#contenedor-items-carrito::-webkit-scrollbar {
-    width: 5px;
-}
-#contenedor-items-carrito::-webkit-scrollbar-track {
-    background: #0f172a;
-}
-#contenedor-items-carrito::-webkit-scrollbar-thumb {
-    background: #334155;
-    border-radius: 10px;
-}
+#contenedor-items-carrito::-webkit-scrollbar { width: 5px; }
+#contenedor-items-carrito::-webkit-scrollbar-track { background: #11131A; }
+#contenedor-items-carrito::-webkit-scrollbar-thumb { background: #1f222e; border-radius: 10px; }
 
-/* Tarjeta individual de producto agregado al carrito */
 .cart-item-modern {
-    background-color: #1e293b;
+    background-color: #1a1d27;
     border-radius: 12px;
     padding: 1rem;
     margin-bottom: 1rem;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.3s ease; /* Quitamos el transform de movimiento */
     border: 1px solid transparent;
+    position: relative; /* IMPORTANTE: Permite posicionar la X en la esquina */
 }
 
 .cart-item-modern:hover {
-    background-color: #334155;
-    transform: translateX(-5px); /* Desplazamiento sutil a la izquierda */
-    border-color: #475569;
+    border-color: #FF3B3B !important; /* Solo aparece el marco rojo, sin moverse */
 }
 
-/* Contenedor miniatura de la imagen en el carrito */
 .cart-item-img {
     width: 70px;
     height: 70px;
     object-fit: contain;
-    background: white; /* Único fondo blanco permitido para legibilidad */
+    background: white;
     border-radius: 8px;
     padding: 5px;
 }
 
-/* Footer del carrito (Área de Total y Pagar) */
 .cart-footer-modern {
-    background-color: #0f172a;
+    background-color: #11131A;
     padding: 2rem 1.5rem;
-    border-top: 1px solid #1e293b;
+    border-top: 1px solid #1f222e;
 }
 
 .cart-total-amount {
@@ -323,95 +313,95 @@ h1, h2, h3 {
     box-shadow: 0 15px 30px rgba(0,0,0,0.5) !important;
 }
 
-/* --------------------------------------------------------------------------
-   7. SECCIÓN QUIÉNES SOMOS (Diseño Estático y Corporativo)
-   Se usan en: quienes-somos.blade.php
-   -------------------------------------------------------------------------- */
+.btn-eliminar-carrito {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+    line-height: 1;
+}
 
-/* Tarjetas fijas para la historia y compromiso */
+.btn-eliminar-carrito:hover {
+    color: #FF3B3B; /* La X se pone Mars Red al pasar el mouse */
+}
+
+/* --------------------------------------------------------------------------
+   7. SECCIÓN QUIÉNES SOMOS
+   -------------------------------------------------------------------------- */
 .card-nosotros {
-    background-color: #1a232e !important;
-    border: 1px solid #2d3748 !important;
+    background-color: #11131A !important;
+    border: 1px solid #1f222e !important;
     border-radius: 12px;
 }
 
-/* Mejora la legibilidad separando un poco más las líneas de texto */
-.lh-lg {
-    line-height: 1.8 !important;
-}
+.lh-lg { line-height: 1.8 !important; }
 
-/* Tarjetas fijas para el staff */
 .card-equipo {
-    /* Degradado sutil de azul oscuro a casi negro, da volumen */
-    background: linear-gradient(145deg, #1a232e 0%, #111827 100%) !important;
-    border: 1px solid rgba(59, 22, 145, 0.3) !important; /* Borde morado semi-transparente */
-    border-radius: 16px; /* Bordes un poco más suaves y modernos */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra suave para dar profundidad */
-    transition: all 0.3s ease; /* Prepara la tarjeta para el hover */
+    background: linear-gradient(145deg, #1a1d27 0%, #11131A 100%) !important;
+    border: 1px solid rgba(255, 59, 59, 0.15) !important; /* Borde rojo semi-transparente */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
 }
 
-/* Hover ultra seguro: solo ilumina el borde y levanta un milímetro, cero riesgo de buguear la vista */
 .card-equipo:hover {
-    border-color: #3b1691 !important;
-    box-shadow: 0 15px 40px rgba(59, 22, 145, 0.25);
+    border-color: #FF3B3B !important;
+    box-shadow: 0 15px 40px rgba(255, 59, 59, 0.15);
     transform: translateY(-5px);
 }
 
-/* Aprovechamos la clase contenedor-img que ya tenías y le damos un toque de marca */
 .card-equipo .contenedor-img {
     background-color: transparent;
-    padding: 30px 0 15px 0; /* Espaciado arriba y abajo */
-    height: auto;           /* Anula el height: 0 del catálogo */
-    padding-bottom: 0;      /* Anula el padding-bottom: 100% del catálogo */
-    overflow: visible;      /* Evita que se recorte la foto */
+    padding: 30px 0 15px 0;
+    height: auto;
+    padding-bottom: 0;
+    overflow: visible;
     border-bottom: none;
-    display: flex;          /* Usamos flexbox para centrar fácil */
+    display: flex;
     justify-content: center;
 }
 
-/* Transformamos las fotos cuadradas en Avatares circulares estilo perfil gamer */
 .card-equipo .contenedor-img img {
-    position: static;       /* Anula el position: absolute del catálogo */
+    position: static;
     border-radius: 50%;
-    width: 140px;           /* Tamaño fijo del avatar */
+    width: 140px;
     height: 140px;
     object-fit: cover;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    border: 3px solid #3b1691;
+    border: 3px solid #FF3B3B; /* Borde del avatar Mars Red */
     margin: 0;
 }
 
-/* Destaca el puesto de trabajo con tu color de marca */
 .rol-destacado {
-    color: #4ade80; /* Usamos el verde neón de tus precios para hacer contraste */
+    color: #FF3B3B; /* Puestos en Mars Red */
     font-weight: 800;
     text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: 1.5px;
-    background: rgba(74, 222, 128, 0.1); /* Fondo verde muy transparente */
+    background: rgba(255, 59, 59, 0.1);
     padding: 6px 15px;
     border-radius: 20px;
     display: inline-block;
-    border: 1px solid rgba(74, 222, 128, 0.2);
+    border: 1px solid rgba(255, 59, 59, 0.2);
 }
 
-/* Tamaño de fuente ligeramente menor para las biografías */
-.text-sm {
-    font-size: 0.95rem;
-}
+.text-sm { font-size: 0.95rem; }
 
 /* --------------------------------------------------------------------------
-   8. PANTALLA DE ÉXITO (Diseño Premium)
-   Se usan en: exito.blade.php
+   8. PANTALLA DE ÉXITO Y CHECKOUT
    -------------------------------------------------------------------------- */
-
 .card-exito {
-    background-color: #1a232e !important;
-    border: 1px solid rgba(74, 222, 128, 0.2) !important; /* Borde verde neón sutil */
+    background-color: #11131A !important;
+    border: 1px solid rgba(74, 222, 128, 0.2) !important;
     border-radius: 24px;
 }
 
-/* El círculo del checkmark */
 .success-circle {
     width: 100px;
     height: 100px;
@@ -424,7 +414,6 @@ h1, h2, h3 {
     margin: 0 auto;
 }
 
-/* El tilde/check */
 .checkmark {
     color: #4ade80;
     font-size: 4rem;
@@ -432,83 +421,61 @@ h1, h2, h3 {
     line-height: 1;
 }
 
-/* Refuerzo para el botón en esta pantalla */
-.card-exito .btn-primary {
-    background-color: #3b1691;
-    border-radius: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
 /* --------------------------------------------------------------------------
    9. SECCIÓN CONTACTO Y FORMULARIOS
-   Se usan en: contacto.blade.php
    -------------------------------------------------------------------------- */
-
 .card-contacto {
-    background: linear-gradient(145deg, #1a232e 0%, #111827 100%) !important;
-    border: 1px solid rgba(59, 22, 145, 0.3) !important;
+    background: linear-gradient(145deg, #1a1d27 0%, #11131A 100%) !important;
+    border: 1px solid rgba(255, 59, 59, 0.15) !important;
     border-radius: 16px;
 }
 
-/* Estilo premium para los campos del formulario */
 .input-dark {
-    background-color: #0b1218 !important; /* Fondo ultra oscuro */
-    border: 1px solid #2d3748 !important; /* Borde sutil */
+    background-color: #0b0c10 !important;
+    border: 1px solid #1f222e !important;
     color: #ffffff !important;
     border-radius: 8px;
     padding: 12px 15px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto Neón cuando el usuario hace clic en el input */
 .input-dark:focus {
-    border-color: #3b1691 !important; /* Borde morado de tu marca */
-    box-shadow: 0 0 0 0.25rem rgba(59, 22, 145, 0.25) !important;
+    border-color: #FF3B3B !important; /* Brillo Mars Red al escribir */
+    box-shadow: 0 0 0 0.25rem rgba(255, 59, 59, 0.15) !important;
     outline: none;
 }
 
-.input-dark::placeholder {
-    color: #4b5563 !important; /* Un gris oscuro para que no moleste */
-}
-/* Estilos para los iconos de Redes Sociales en Contacto */
+.input-dark::placeholder { color: #64748b !important; }
+
 .icono-red {
     width: 32px;
     height: 32px;
     transition: transform 0.3s ease, filter 0.3s ease;
-    /* Si tus SVG por defecto son negros y no se ven en el fondo oscuro,
-       descomentá la línea de abajo para invertirlos a blanco: */
-    /* filter: invert(1); */
 }
 
 .social-link:hover .icono-red {
-    transform: translateY(-5px); /* Hace que el icono salte hacia arriba */
-    filter: drop-shadow(0px 5px 10px rgba(59, 22, 145, 0.6)); /* Sombra morada */
+    transform: translateY(-5px);
+    filter: drop-shadow(0px 5px 10px rgba(255, 59, 59, 0.6)); /* Sombra roja */
 }
 
 /* --------------------------------------------------------------------------
    10. SECCIÓN TÉRMINOS Y CONDICIONES
-   Se usan en: terminos.blade.php
    -------------------------------------------------------------------------- */
-
-/* Estilo para los números de sección (Círculo morado con texto blanco) */
 .termino-numero {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: #3b1691;
+    background-color: #FF3B3B; /* Círculos en Mars Red */
     color: #ffffff;
     font-size: 1.2rem;
     font-weight: bold;
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(59, 22, 145, 0.4);
-    flex-shrink: 0; /* Evita que el círculo se aplaste en pantallas chicas */
+    box-shadow: 0 4px 10px rgba(255, 59, 59, 0.3);
+    flex-shrink: 0;
 }
 
-/* Efecto hover suave sobre cada bloque de texto */
 .termino-seccion {
     padding: 15px;
     border-radius: 12px;
@@ -516,5 +483,31 @@ h1, h2, h3 {
 }
 
 .termino-seccion:hover {
-    background-color: rgba(255, 255, 255, 0.02); /* Un brillo muy leve al leer */
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Tipografía ultra pesada para títulos */
+.fw-black {
+    font-weight: 900 !important;
+}
+
+/* Espaciado de letras ajustado */
+.tracking-tighter {
+    letter-spacing: -2px !important;
+}
+
+/* Hover Elevate refinado */
+.hover-elevate {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hover-elevate:hover {
+    transform: translateY(-5px);
+}
+
+/* Forzar el color de fondo de las tarjetas del catálogo a Space Charcoal */
+.producto-item .card {
+    background-color: #11131A !important; /* Space Charcoal */
+    padding: 1.5rem;
+    border-radius: 1.5rem !important;
 }
