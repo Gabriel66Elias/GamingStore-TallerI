@@ -35,6 +35,34 @@ class ProductoController extends Controller
                 'specs' => ['12 Teraflops de potencia', 'SSD NVMe de 1TB', 'Juego en 4K y hasta 120 FPS'],
                 'categoria' => 'Consolas'
             ],
+            // Nuevas Consolas
+            16 => [
+                'nombre' => 'Nintendo Switch OLED',
+                'descripcion' => 'La versión mejorada con una pantalla OLED vibrante, soporte ajustable y audio mejorado.',
+                'imagen' => '/img/switch.webp',
+                'precio' => 550000,
+                'stock' => 8,
+                'specs' => ['Pantalla OLED 7"', '64GB almacenamiento interno', 'Soporte ancho ajustable'],
+                'categoria' => 'Consolas'
+            ],
+            17 => [
+                'nombre' => 'Xbox Series S',
+                'descripcion' => 'Rendimiento de nueva generación en la Xbox más pequeña y elegante de la historia.',
+                'imagen' => '/img/xbox-s.webp',
+                'precio' => 650000,
+                'stock' => 12,
+                'specs' => ['512GB NVMe SSD', 'Resolución 1440p hasta 120 FPS', 'Edición 100% digital'],
+                'categoria' => 'Consolas'
+            ],
+            18 => [
+                'nombre' => 'Steam Deck OLED 512GB',
+                'descripcion' => 'Juega tu biblioteca de PC en cualquier lugar con colores espectaculares y HDR.',
+                'imagen' => '/img/steam-deck.webp',
+                'precio' => 1100000,
+                'stock' => 4,
+                'specs' => ['Pantalla HDR OLED 7.4"', '512GB NVMe SSD', 'APU AMD Zen 2 ultrarrápida'],
+                'categoria' => 'Consolas'
+            ],
 
             // --- HARDWARE ---
             3 => [
@@ -100,6 +128,34 @@ class ProductoController extends Controller
                 'specs' => ['750 Watts', 'Certificación 80 Plus Gold', 'Totalmente Modular'],
                 'categoria' => 'Hardware'
             ],
+            // Nuevo Hardware
+            19 => [
+                'nombre' => 'Procesador Intel Core i9-14900K',
+                'descripcion' => 'Rendimiento extremo de 14va generación para gaming competitivo y creación de contenido.',
+                'imagen' => '/img/i9-14900k.webp',
+                'precio' => 950000,
+                'stock' => 5,
+                'specs' => ['24 Núcleos / 32 Hilos', 'Frecuencia turbo hasta 6.0 GHz', 'Socket LGA 1700'],
+                'categoria' => 'Hardware'
+            ],
+            20 => [
+                'nombre' => 'Gabinete NZXT H5 Flow',
+                'descripcion' => 'Flujo de aire optimizado con un diseño limpio, minimalista y panel de vidrio templado.',
+                'imagen' => '/img/nzxt-h5.webp',
+                'precio' => 180000,
+                'stock' => 10,
+                'specs' => ['Panel frontal perforado', 'Ventilador inferior dedicado GPU', 'Vidrio templado'],
+                'categoria' => 'Hardware'
+            ],
+            21 => [
+                'nombre' => 'Watercooling Corsair iCUE H150i',
+                'descripcion' => 'Mantén las temperaturas a raya con este sistema de refrigeración líquida de 360mm.',
+                'imagen' => '/img/corsair-h150i.webp',
+                'precio' => 260000,
+                'stock' => 6,
+                'specs' => ['Radiador de 360mm', '3x Ventiladores magnéticos RGB', 'Bomba de alto rendimiento'],
+                'categoria' => 'Hardware'
+            ],
 
             // --- PERIFÉRICOS ---
             1 => [
@@ -138,6 +194,34 @@ class ProductoController extends Controller
                 'specs' => ['Sonido Envolvente Virtual 7.1', 'Micrófono con cancelación de ruido', 'Almohadillas de memory foam'],
                 'categoria' => 'Periféricos'
             ],
+            // Nuevos Periféricos
+            22 => [
+                'nombre' => 'Silla Gamer Secretlab Titan Evo',
+                'descripcion' => 'Ergonomía de nivel profesional para evitar fatiga durante tus largas sesiones competitivas.',
+                'imagen' => '/img/silla-titan.webp',
+                'precio' => 750000,
+                'stock' => 3,
+                'specs' => ['Soporte lumbar ajustable', 'Tapizado de polipiel premium', 'Reposabrazos 4D magnéticos'],
+                'categoria' => 'Periféricos'
+            ],
+            23 => [
+                'nombre' => 'Micrófono HyperX QuadCast S',
+                'descripcion' => 'Micrófono USB de condensador con iluminación RGB radiante para streamers y creadores.',
+                'imagen' => '/img/mic-quadcast.webp',
+                'precio' => 210000,
+                'stock' => 8,
+                'specs' => ['Iluminación RGB personalizable', 'Sensor táctil para silenciar', 'Montura antivibración'],
+                'categoria' => 'Periféricos'
+            ],
+            24 => [
+                'nombre' => 'Mando Xbox Elite Series 2',
+                'descripcion' => 'El control más avanzado del mundo, diseñado para adaptarse a tu estilo de juego.',
+                'imagen' => '/img/xbox-elite.webp',
+                'precio' => 240000,
+                'stock' => 5,
+                'specs' => ['Palancas de tensión ajustable', 'Gatillos de alta sensibilidad', 'Batería interna recargable'],
+                'categoria' => 'Periféricos'
+            ],
 
             // --- GAMING TVs & MONITORES ---
             14 => [
@@ -156,6 +240,34 @@ class ProductoController extends Controller
                 'precio' => 1850000,
                 'stock' => 2,
                 'specs' => ['55 Pulgadas OLED 4K', 'Tasa de refresco 120Hz', 'HDMI 2.1 con VRR', 'Dolby Vision Gaming'],
+                'categoria' => 'TVs y Monitores'
+            ],
+            // Nuevos TVs y Monitores
+            25 => [
+                'nombre' => 'Monitor Curvo Samsung Odyssey G7 32"',
+                'descripcion' => 'Inmersión total y rendimiento extremo gracias a su espectacular curvatura y panel veloz.',
+                'imagen' => '/img/monitor-samsung-g7.webp',
+                'precio' => 980000,
+                'stock' => 4,
+                'specs' => ['Panel VA Curvo 1000R', 'Resolución WQHD 1440p', 'Tasa de refresco 240Hz'],
+                'categoria' => 'TVs y Monitores'
+            ],
+            26 => [
+                'nombre' => 'Monitor ASUS ROG Swift 360Hz',
+                'descripcion' => 'Diseñado específicamente para profesionales de eSports que necesitan la máxima fluidez visual.',
+                'imagen' => '/img/monitor-asus-360hz.webp',
+                'precio' => 1150000,
+                'stock' => 2,
+                'specs' => ['Panel Fast IPS 24.5"', 'Tasa de refresco 360Hz', 'NVIDIA Reflex Latency Analyzer'],
+                'categoria' => 'TVs y Monitores'
+            ],
+            27 => [
+                'nombre' => 'Smart TV Samsung Neo QLED 65" 8K',
+                'descripcion' => 'Detalle absoluto, contraste inigualable y colores vibrantes para el setup de living definitivo.',
+                'imagen' => '/img/tv-samsung-8k.webp',
+                'precio' => 3500000,
+                'stock' => 1,
+                'specs' => ['Pantalla 65" Quantum Matrix', 'Resolución Real 8K', 'Tasa de refresco 144Hz', 'Anti-reflejo pro'],
                 'categoria' => 'TVs y Monitores'
             ]
         ];

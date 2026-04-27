@@ -30,7 +30,7 @@
 
                 <a class="btn btn-mars d-flex align-items-center position-relative" href="#carritoLateral" data-bs-toggle="offcanvas">
                     <img src="{{ asset('assets/cart3.svg') }}" class="me-2" style="width: 20px; filter: invert(1);">
-                    <span class="d-none d-xl-inline text-nowrap">Carrito</span>
+                    <span class="d-none d-xl-inline text-nowrap"></span>
                     <span id="cart-count-badge" class="cart-badge d-none">0</span>
                 </a>
             </div>

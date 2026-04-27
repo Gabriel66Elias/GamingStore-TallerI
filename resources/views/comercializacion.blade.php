@@ -433,6 +433,11 @@
                     alert('El carrito está vacío. Agrega productos antes de pagar.');
                     return;
                 }
+
+                // --- NUEVA LÓGICA: GUARDAR EL MÉTODO DE ENVÍO ---
+    const metodoEnvio = document.querySelector('input[name="tipo_envio"]:checked').value;
+    localStorage.setItem('metodo_envio_final', metodoEnvio);
+    
                 localStorage.removeItem('gaming_station_cart');
                 window.location.href = '/confirmacion-pedido';
             });

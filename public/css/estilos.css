@@ -424,10 +424,18 @@ h1, h2, h3, h4, h5, h6 {
 /* --------------------------------------------------------------------------
    9. SECCIÓN CONTACTO Y FORMULARIOS
    -------------------------------------------------------------------------- */
-.card-contacto {
+   .card-contacto {
     background: linear-gradient(145deg, #1a1d27 0%, #11131A 100%) !important;
-    border: 1px solid rgba(255, 59, 59, 0.15) !important;
+    /* Borde base transparente para que no salte al hacer hover */
+    border: 2px solid transparent !important; 
     border-radius: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card-contacto:hover {
+    transform: none !important; /* Se queda quieta */
+    border-color: #FF3B3B !important; /* Solo se marca el borde rojo */
+    box-shadow: 0 0 20px rgba(255, 59, 59, 0.15) !important;
 }
 
 .input-dark {
