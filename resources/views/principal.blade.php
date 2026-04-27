@@ -210,8 +210,8 @@
                                     style="width: 32px; height: 32px; filter: invert(1);">
                             </div>
                             <h4 class="fw-black mb-2 text-white text-uppercase fs-5">Periféricos</h4>
-                            <p class="text-secondary mb-0 lh-sm px-2" style="font-size: 0.85rem;">Perifericos
-                                profecionales para tener la mejor experiencia.</p>
+                            <p class="text-secondary mb-0 lh-sm px-2" style="font-size: 0.85rem;">Periféricos
+                                profesionales para tener la mejor experiencia.</p>
                         </div>
                     </div>
                 </a>
