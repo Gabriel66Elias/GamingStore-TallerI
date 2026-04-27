@@ -50,7 +50,7 @@
                             {{ $producto['descripcion'] }}
                         </p>
 
-                        <div class="mb-5 flex-grow-1">
+                        <div class="mb-5 grow">
                             <h5 class="text-white fw-bold mb-4 fs-6 text-uppercase" style="letter-spacing: 1px;">
                                 Especificaciones Destacadas</h5>
 
