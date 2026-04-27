@@ -70,7 +70,7 @@
                                 <input type="email" name="email" class="form-control input-dark" placeholder="nombre@ejemplo.com" required>
                             </div>
                             <div class="mb-4 text-start">
-                                <label class="form-label text-secondary fw-semibold">Mensaje</label>
+                                <label class="form-label text-secondary fw-semibold">Mensaje - ¿En qué podemos ayudarle? </label>
                                 <textarea name="mensaje" class="form-control input-dark" rows="5" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-mars btn-lg w-100 py-3 mt-3 fw-bold" style="border-radius: 0.8rem;">ENVIAR MENSAJE</button>
