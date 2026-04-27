@@ -2,9 +2,6 @@
 @section('titulo', 'Catálogo')
 @section('contenido')
 
-    {{-- Importamos el archivo CSS separado de los fondos (Buenas Prácticas) --}}
-    <link rel="stylesheet" href="{{ asset('css/fondos.css') }}">
-
     {{-- DIVS QUE DIBUJAN LAS LUCES (No se ven, solo emiten el brillo) --}}
     <div class="fondo-luces-catalogo">
         <div class="luz-roja-top"></div>
@@ -13,6 +10,13 @@
 
     <div class="container mt-5 mb-5">
 
+        <div class="mb-4">
+            <a href="/" class="text-decoration-none text-secondary d-inline-flex align-items-center gap-2 hover-text-mars" style="transition: color 0.3s;" onmouseover="this.style.color='#FF3B3B'" onmouseout="this.style.color='#6c757d'">
+                <img src="{{ asset('assets/caret-left.svg') }}" alt="Volver" style="width: 18px; height: 18px; filter: invert(0.6);">
+                <span class="fw-semibold">Volver al inicio</span>
+            </a>
+        </div>
+        
         <div class="container mt-5 mb-5">
             {{-- Encabezado Minimalista --}}
             <div class="text-center mb-5">

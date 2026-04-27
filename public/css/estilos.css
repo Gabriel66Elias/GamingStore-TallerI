@@ -3,10 +3,44 @@
    ARCHIVO: estilos.css
    NUEVA PALETA: Mars Red (#FF3B3B) y Space Charcoal (#11131A)
    ========================================================================== */
+/* ==========================================================================
+   PROYECTO: GamingStation
+   ARCHIVO: estilos.css
+   ========================================================================== */
 
-/* Importamos la fuente minimalista y moderna "Inter" desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* 1. CARGAMOS LAS FUENTES LOCALES */
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* 2. ESTILOS GLOBALES Y BASE */
+body {
+    font-family: 'Inter', sans-serif; /* Esto sigue funcionando igual, pero ahora usa la local */
+    background-color: #0b0c10;
+    color: #e2e8f0;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ... el resto de tu CSS sigue exactamente igual ... */
 /* --------------------------------------------------------------------------
    1. ESTILOS GLOBALES Y BASE
    -------------------------------------------------------------------------- */
