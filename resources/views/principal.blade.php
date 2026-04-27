@@ -153,7 +153,7 @@
                         </h1>
                         {{-- SUBTÍTULO --}}
                         <p class="lead mb-5 text-light fs-5 fw-normal" style="text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
-                            Las mejores consolas, hardware variado y perifericos del mejor nivel. Todo con exelente precio y
+                            Las mejores consolas, hardware variado y periféricos del mejor nivel. Todo con excelente precio y
                             calidad :)
                         </p>
 
