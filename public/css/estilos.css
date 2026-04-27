@@ -519,3 +519,41 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.5rem;
     border-radius: 1.5rem !important;
 }
+
+/* --------------------------------------------------------------------------
+   11. CATEGORÍAS Y BOTÓN CONÓCENOS (Página Principal)
+   -------------------------------------------------------------------------- */
+/* Tarjetas de Categoría Cuadradas con Gradiente Premium y Hover Mars Red */
+.card-categoria {
+    background: linear-gradient(145deg, #2d313f 0%, #000000 100%); /* Fondo con gradiente diagonal */
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra base para despegarla del fondo */
+}
+
+.card-categoria:hover {
+    transform: translateY(-8px);
+    border-color: #FF3B3B !important;
+    box-shadow: 0 10px 25px rgba(255, 59, 59, 0.15) !important;
+    background: linear-gradient(145deg, #242836 0%, #11131A 100%); /* El gradiente se aclara al hover */
+}
+
+/* Botón Conócenos personalizado para que la letra no se ponga negra */
+.btn-conocenos {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: #ffffff;
+    background-color: rgba(11, 12, 16, 0.6); /* Fondo negro semi-transparente */
+    transition: all 0.3s ease;
+}
+
+.btn-conocenos:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Se aclara el fondo sutilmente */
+    border-color: #ffffff;
+    color: #ffffff !important; /* Fuerza a que la letra siga siendo blanca */
+    transform: translateY(-2px);
+}

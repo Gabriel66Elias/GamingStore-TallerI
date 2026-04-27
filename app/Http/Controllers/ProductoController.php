@@ -18,7 +18,7 @@ class ProductoController extends Controller
                 'categoria' => 'Consolas'
             ],
             2 => [
-                'nombre' => 'Nintendo Switch',
+                'nombre' => 'Nintendo Switch 2',
                 'descripcion' => 'Juega en el televisor o en modo portátil con total libertad.',
                 'imagen' => '/img/sw2.webp',
                 'precio' => 459999,
@@ -43,15 +43,6 @@ class ProductoController extends Controller
                 'precio' => 550000,
                 'stock' => 8,
                 'specs' => ['Pantalla OLED 7"', '64GB almacenamiento interno', 'Soporte ancho ajustable'],
-                'categoria' => 'Consolas'
-            ],
-            17 => [
-                'nombre' => 'Xbox Series S',
-                'descripcion' => 'Rendimiento de nueva generación en la Xbox más pequeña y elegante de la historia.',
-                'imagen' => '/img/xbox-s.webp',
-                'precio' => 650000,
-                'stock' => 12,
-                'specs' => ['512GB NVMe SSD', 'Resolución 1440p hasta 120 FPS', 'Edición 100% digital'],
                 'categoria' => 'Consolas'
             ],
             18 => [
@@ -196,12 +187,12 @@ class ProductoController extends Controller
             ],
             // Nuevos Periféricos
             22 => [
-                'nombre' => 'Silla Gamer Secretlab Titan Evo',
-                'descripcion' => 'Ergonomía de nivel profesional para evitar fatiga durante tus largas sesiones competitivas.',
-                'imagen' => '/img/silla-titan.webp',
-                'precio' => 750000,
+                'nombre' => 'Teclado Magnetico Attack Shark X68 HE',
+                'descripcion' => 'teclado mecánico magnético de 65% diseñado para gaming competitivo, destacando por su Rapid Trigger (RT) con precisión de 0,01mm  , polling rate de 8000 hz y switches magnéticos.',
+                'imagen' => '/img/tm.webp',
+                'precio' => 112000,
                 'stock' => 3,
-                'specs' => ['Soporte lumbar ajustable', 'Tapizado de polipiel premium', 'Reposabrazos 4D magnéticos'],
+                'specs' => ['Tecnología Magnética', 'Keycaps PBT', 'Iluminación RGB'],
                 'categoria' => 'Periféricos'
             ],
             23 => [

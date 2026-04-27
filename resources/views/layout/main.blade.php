@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fondos.css') }}">
 </head>
 
 <body class="bg-dark text-light">

@@ -1,0 +1,72 @@
+/* ==========================================================================
+   ARCHIVO: fondos.css - LUCES Y GRILLAS
+   ========================================================================== */
+
+   .fondo-minimalista-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Se mantiene detrás del contenido */
+    pointer-events: none;
+    background-color: #0b0c10;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.brillo-rojo-cenital {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70vw;
+    height: 60vh;
+    background: radial-gradient(ellipse at center, rgba(255, 59, 59, 0.08) 0%, transparent 70%);
+    filter: blur(60px);
+}
+
+.mascara-difuminada {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh;
+    background: linear-gradient(to top, #0b0c10 10%, transparent 100%);
+}
+
+/* Luces para Catálogo y Consultas */
+.fondo-luces-catalogo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.luz-roja-top {
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 59, 59, 0.15) 0%, rgba(255, 59, 59, 0) 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.luz-roja-bottom {
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(200, 30, 30, 0.1) 0%, rgba(20, 20, 30, 0) 70%);
+    border-radius: 50%;
+    filter: blur(100px);
+}

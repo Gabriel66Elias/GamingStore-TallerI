@@ -4,96 +4,7 @@
 
 @section('contenido')
 
-    {{-- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE INICIO --}}
-    <style>
-        /* Tarjetas de Categoría Cuadradas con Gradiente Premium y Hover Mars Red */
-        .card-categoria {
-            /* NUEVO: Fondo con gradiente diagonal */
-            background: linear-gradient(145deg, #2d313f 0%, #000000 100%);
-            border: 2px solid transparent;
-            border-radius: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            aspect-ratio: 1 / 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra base para despegarla del fondo */
-        }
-
-        .card-categoria:hover {
-            transform: translateY(-8px);
-            border-color: #FF3B3B !important;
-            box-shadow: 0 10px 25px rgba(255, 59, 59, 0.15) !important;
-            /* NUEVO: El gradiente se aclara un poco al pasar el mouse */
-            background: linear-gradient(145deg, #242836 0%, #11131A 100%);
-        }
-
-        /* Botón Conócenos personalizado para que la letra no se ponga negra */
-        .btn-conocenos {
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            color: #ffffff;
-            background-color: rgba(11, 12, 16, 0.6);
-            /* Fondo negro semi-transparente */
-            transition: all 0.3s ease;
-        }
-
-        .btn-conocenos:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            /* Se aclara el fondo sutilmente */
-            border-color: #ffffff;
-            color: #ffffff !important;
-            /* Fuerza a que la letra siga siendo blanca */
-            transform: translateY(-2px);
-        }
-    </style>
-
-    {{-- 1. ESTILO DE FONDO MODERNO Y MINIMALISTA (Grid + Brillo Sutil) --}}
-    <style>
-        .fondo-minimalista-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-
-            /* Color base ultra oscuro */
-            background-color: #0b0c10;
-
-            /* Dibujo de la cuadrícula con líneas blancas al 3% de opacidad */
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            /* Tamaño de los cuadraditos */
-        }
-
-        /* Halo Mars Red centrado arriba para darle el toque Gaming premium */
-        .brillo-rojo-cenital {
-            position: absolute;
-            top: -20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70vw;
-            height: 60vh;
-            background: radial-gradient(ellipse at center, rgba(255, 59, 59, 0.08) 0%, transparent 70%);
-            filter: blur(60px);
-            z-index: -1;
-        }
-
-        /* Degradado en la parte inferior para que la cuadrícula se desvanezca suavemente hacia abajo */
-        .mascara-difuminada {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 40vh;
-            background: linear-gradient(to top, #0b0c10 10%, transparent 100%);
-        }
-    </style>
-
-    {{-- 2. DIVS QUE DIBUJAN EL FONDO --}}
+    {{-- DIVS QUE DIBUJAN EL FONDO MINIMALISTA --}}
     <div class="fondo-minimalista-grid">
         <div class="brillo-rojo-cenital"></div>
         <div class="mascara-difuminada"></div>
@@ -146,7 +57,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
-                        {{-- TÍTULO MODIFICADO: Letra fina (fw-light) mezclada con la palabra fuerte en negrita (fw-bold) --}}
+                        {{-- TÍTULO MODIFICADO: Letra fina mezclada con la palabra fuerte en negrita --}}
                         <h1 class="display-4 fw-light mb-3 text-white text-uppercase"
                             style="letter-spacing: 1px; text-shadow: 0 4px 15px rgba(0,0,0,0.8);">
                             Elevá tu juego al <span class="text-mars fw-bold">siguiente nivel</span>
@@ -165,7 +76,7 @@
                                     style="width: 22px; height: 22px; filter: invert(1);">
                                 <span>Ver Catálogo</span>
                             </a>
-                            {{-- BOTÓN CONÓCENOS MODIFICADO: Usa la nueva clase .btn-conocenos --}}
+                            {{-- BOTÓN CONÓCENOS --}}
                             <a href="/quienes-somos" class="btn btn-conocenos btn-lg px-5 py-3 fw-bold"
                                 style="border-radius: 0.8rem;">
                                 Conócenos
